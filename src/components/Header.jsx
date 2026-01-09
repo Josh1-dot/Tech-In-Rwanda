@@ -1,20 +1,24 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../translations'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const location = useLocation()
+  const { language, toggleLanguage } = useLanguage()
+  const t = translations[language]
 
   const isActive = (path) => location.pathname === path
 
   const navLinks = [
-    { path: '/', label: 'Accueil' },
-    { path: '/about', label: 'À propos' },
-    { path: '/formations', label: 'Formations' },
-    { path: '/entreprises', label: 'Entreprises' },
-    { path: '/stages', label: 'Stages' },
-    { path: '/blog', label: 'Blog' },
-    { path: '/contact', label: 'Contact' },
+    { path: '/', label: t.header.home },
+    { path: '/about', label: t.header.about },
+    { path: '/formations', label: t.header.formations },
+    { path: '/entreprises', label: t.header.entreprises },
+    { path: '/stages', label: t.header.stages },
+    { path: '/blog', label: t.header.blog },
+    { path: '/contact', label: t.header.contact },
   ]
 
   return (
@@ -52,6 +56,16 @@ const Header = () => {
                 )}
               </Link>
             ))}
+            
+            {/* Language Switcher */}
+            <button
+              onClick={toggleLanguage}
+              className="ml-4 px-4 py-2 rounded-lg bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all duration-300 flex items-center space-x-2 group"
+            >
+              <span className="text-sm font-medium text-gray-300 group-hover:text-white">
+                {language === 'fr' ? '🇫🇷 FR' : '🇬🇧 EN'}
+              </span>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -101,6 +115,16 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
+            
+            {/* Language Switcher Mobile */}
+            <button
+              onClick={toggleLanguage}
+              className="w-full mt-3 px-4 py-3 rounded-lg bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all duration-300 flex items-center justify-center space-x-2"
+            >
+              <span className="text-sm font-medium text-gray-300">
+                {language === 'fr' ? '🇫🇷 Français' : '🇬🇧 English'}
+              </span>
+            </button>
           </div>
         )}
       </nav>

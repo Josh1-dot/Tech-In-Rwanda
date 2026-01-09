@@ -2,38 +2,43 @@ import HeroSlider from '../components/HeroSlider'
 import NetworkBackground from '../components/NetworkBackground'
 import ScrollReveal from '../components/ScrollReveal'
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../translations'
 
 const Home = () => {
+  const { language } = useLanguage()
+  const t = translations[language]
+  
   const stats = [
-    { number: '500+', label: 'Étudiants formés', icon: '👨‍🎓' },
-    { number: '15+', label: 'Certifications', icon: '🏅' },
-    { number: '95%', label: 'Satisfaction', icon: '⭐' },
-    { number: '20+', label: 'Partenaires', icon: '🤝' }
+    { number: '500+', label: t.home.stats.students, icon: '👨‍🎓' },
+    { number: '15+', label: t.home.stats.certifications, icon: '🏅' },
+    { number: '95%', label: t.home.stats.satisfaction, icon: '⭐' },
+    { number: '20+', label: t.home.stats.partners, icon: '🤝' }
   ]
 
   const services = [
     {
       icon: '🌐',
-      title: 'Réseaux & Infrastructure',
-      items: ['CCNA Débutant & Avancé', 'CCNP Expert', 'Architecture Réseau'],
+      title: t.home.services.network.title,
+      items: t.home.services.network.items,
       color: 'from-blue-500 to-cyan-500'
     },
     {
       icon: '🔐',
-      title: 'Cybersécurité',
-      items: ['Security+', 'CySA+', 'Ethical Hacking', 'SOC Analyst'],
+      title: t.home.services.cybersecurity.title,
+      items: t.home.services.cybersecurity.items,
       color: 'from-red-500 to-pink-500'
     },
     {
       icon: '☁️',
-      title: 'Cloud Computing',
-      items: ['Microsoft Azure', 'Architecture Cloud', 'DevOps'],
+      title: t.home.services.cloud.title,
+      items: t.home.services.cloud.items,
       color: 'from-cyan-500 to-blue-500'
     },
     {
       icon: '🤖',
-      title: 'Intelligence Artificielle',
-      items: ['Machine Learning', 'Data Science', 'Big Data'],
+      title: t.home.services.ai.title,
+      items: t.home.services.ai.items,
       color: 'from-purple-500 to-pink-500'
     }
   ]
@@ -54,6 +59,27 @@ const Home = () => {
       <div className="relative z-10">
       {/* Hero Slider */}
       <HeroSlider />
+
+      {/* Welcome Section */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="section-container">
+          <ScrollReveal direction="up">
+            <div className="max-w-5xl mx-auto bg-white/5 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl">
+              <div className="text-center">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+                  {t.home.welcome.title}
+                </h2>
+                <p className="text-xl md:text-2xl text-tir-blue font-semibold mb-6">
+                  {t.home.welcome.subtitle}
+                </p>
+                <p className="text-base md:text-lg text-gray-300 leading-relaxed">
+                  {t.home.welcome.description}
+                </p>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
 
       {/* Stats Section */}
       <section className="relative py-20">
@@ -85,10 +111,10 @@ const Home = () => {
           <ScrollReveal direction="up">
             <div className="text-center mb-12 md:mb-16 bg-white/5 backdrop-blur-md rounded-2xl md:rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4">
-                Nos Domaines d'Excellence
+                {t.home.excellence.title}
               </h2>
               <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto">
-                Formations certifiantes reconnues internationalement pour propulser votre carrière
+                {t.home.excellence.subtitle}
               </p>
             </div>
           </ScrollReveal>
@@ -116,7 +142,7 @@ const Home = () => {
                       to="/formations"
                       className="inline-flex items-center text-tir-blue font-semibold group-hover:text-tir-green transition-colors"
                     >
-                      En savoir plus
+                      {t.home.whyUs.learnMore}
                       <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
@@ -136,23 +162,19 @@ const Home = () => {
           <ScrollReveal direction="up">
             <div className="text-center mb-12 md:mb-16">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-white">
-                Pourquoi Tech In Rwanda ?
+                {t.home.whyUs.title}
               </h2>
               <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto">
-                Excellence, innovation et accompagnement personnalisé
+                {t.home.whyUs.subtitle}
               </p>
             </div>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-            {[
-              { icon: '🎓', title: 'Certifications Reconnues', text: 'Cisco, CompTIA, Microsoft Azure - Des certifications qui boostent votre CV' },
-              { icon: '👨‍🏫', title: 'Experts Passionnés', text: 'Formateurs certifiés avec expérience pratique du terrain' },
-              { icon: '💼', title: 'Approche Pratique', text: '80% de pratique avec labs, projets réels et mises en situation' }
-            ].map((item, index) => (
+            {t.home.whyUs.features.map((item, index) => (
               <ScrollReveal key={index} direction="left" delay={index * 200}>
                 <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 border border-white/10 shadow-2xl">
-                  <div className="text-5xl mb-4">{item.icon}</div>
+                  <div className="text-5xl mb-4">{['🎓', '👨‍🏫', '💼'][index]}</div>
                   <h3 className="text-2xl font-bold mb-3 text-white">{item.title}</h3>
                   <p className="text-gray-300">{item.text}</p>
                 </div>
@@ -169,30 +191,24 @@ const Home = () => {
             <ScrollReveal direction="left">
               <div className="bg-white/5 backdrop-blur-md rounded-2xl md:rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
-                  Entreprises, transformez vos équipes
+                  {t.home.enterprise.title}
                 </h2>
                 <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
-                  Formations sur mesure, audits de sécurité et accompagnement pour votre transformation digitale
+                  {t.home.enterprise.description}
                 </p>
                 <ul className="space-y-4 mb-8">
-                  <li className="flex items-start">
-                    <span className="text-tir-green text-2xl mr-3">✓</span>
-                    <span className="text-gray-300">Programmes personnalisés selon vos besoins</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-tir-green text-2xl mr-3">✓</span>
-                    <span className="text-gray-300">Audits réseau et cybersécurité</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-tir-green text-2xl mr-3">✓</span>
-                    <span className="text-gray-300">Certification de vos employés</span>
-                  </li>
+                  {t.home.enterprise.benefits.map((benefit, index) => (
+                    <li key={index} className="flex items-start">
+                      <span className="text-tir-green text-2xl mr-3">✓</span>
+                      <span className="text-gray-300">{benefit}</span>
+                    </li>
+                  ))}
                 </ul>
                 <Link 
                   to="/entreprises"
                   className="inline-block bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg hover:bg-white/20 transform hover:scale-105 transition-all duration-300 shadow-xl text-sm md:text-base"
                 >
-                  Devenir partenaire
+                  {t.home.enterprise.cta}
                 </Link>
               </div>
             </ScrollReveal>
@@ -232,23 +248,23 @@ const Home = () => {
           <ScrollReveal direction="up">
             <div className="bg-white/5 backdrop-blur-md rounded-3xl p-12 border border-white/10 shadow-2xl">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Prêt à transformer votre avenir ?
+                {t.home.finalCta.title}
               </h2>
               <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                Rejoignez Tech In Rwanda et devenez un expert recherché dans le domaine technologique
+                {t.home.finalCta.subtitle}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
                   to="/formations"
                   className="bg-gradient-to-r from-tir-blue to-blue-600 hover:from-tir-blue hover:to-blue-700 text-white font-bold py-4 px-10 rounded-lg transition-all duration-300 shadow-2xl hover:scale-105"
                 >
-                  Voir les formations
+                  {t.home.finalCta.viewFormations}
                 </Link>
                 <Link 
                   to="/contact"
                   className="border-2 border-white hover:bg-white hover:text-gray-900 font-bold py-4 px-10 rounded-lg transition-all duration-300"
                 >
-                  Contactez-nous
+                  {t.home.finalCta.contactUs}
                 </Link>
               </div>
             </div>

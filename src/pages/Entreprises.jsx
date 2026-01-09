@@ -1,41 +1,22 @@
 import NetworkBackground from '../components/NetworkBackground'
 import ScrollReveal from '../components/ScrollReveal'
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../translations'
 
 const Entreprises = () => {
-  const services = [
-    {
-      icon: '🎓',
-      title: 'Formations sur mesure',
-      description: 'Programmes adaptés aux besoins spécifiques de votre organisation',
-      features: ['Analyse des besoins', 'Curriculum personnalisé', 'Flexible en horaires', 'Certification incluse']
-    },
-    {
-      icon: '🔒',
-      title: 'Audits de Sécurité',
-      description: 'Évaluation complète de votre infrastructure IT',
-      features: ['Audit réseau', 'Tests d\'intrusion', 'Analyse vulnérabilités', 'Rapport détaillé']
-    },
-    {
-      icon: '📈',
-      title: 'Montée en compétences',
-      description: 'Transformation digitale de vos équipes IT',
-      features: ['Formation continue', 'Certifications pro', 'Coaching individuel', 'Suivi post-formation']
-    },
-    {
-      icon: '🛡️',
-      title: 'Sécurisation Infrastructure',
-      description: 'Mise en conformité et renforcement de sécurité',
-      features: ['Hardening systèmes', 'Mise en conformité', 'SOC setup', 'Monitoring continu']
-    }
-  ]
+  const { language } = useLanguage()
+  const t = translations[language]
 
-  const advantages = [
-    { number: '01', title: 'Expertise reconnue', text: 'Formateurs certifiés avec expérience terrain' },
-    { number: '02', title: 'Sur mesure', text: 'Programmes adaptés à vos besoins' },
-    { number: '03', title: 'ROI mesurable', text: 'Résultats concrets et quantifiables' },
-    { number: '04', title: 'Support continu', text: 'Accompagnement après formation' }
-  ]
+  const services = t.entreprises.services.map((service, idx) => ({
+    icon: ['🎓', '🔒', '📈', '🛡️'][idx],
+    ...service
+  }))
+
+  const advantages = t.entreprises.advantages.map((adv, idx) => ({
+    number: String(idx + 1).padStart(2, '0'),
+    ...adv
+  }))
 
   return (
     <div>
@@ -45,16 +26,16 @@ const Entreprises = () => {
         <div className="section-container relative z-10">
           <div className="max-w-4xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Transformez votre entreprise
+              {t.entreprises.title}
             </h1>
             <p className="text-2xl text-blue-100 mb-8">
-              Formations professionnelles, audits de sécurité et accompagnement digital
+              {t.entreprises.subtitle}
             </p>
             <Link 
               to="/contact"
               className="inline-block bg-white text-tir-blue hover:bg-gray-100 font-bold py-4 px-10 rounded-lg transition-all duration-300 shadow-2xl hover:scale-105"
             >
-              Demander un devis
+              {t.entreprises.cta}
             </Link>
           </div>
         </div>
@@ -63,7 +44,7 @@ const Entreprises = () => {
       {/* Services */}
       <section className="section-container">
         <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-12">
-          Nos Services Entreprises
+          {t.entreprises.servicesTitle}
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, index) => (

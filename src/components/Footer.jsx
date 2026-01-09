@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../translations'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
+  const { language } = useLanguage()
+  const t = translations[language]
 
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-tir-dark to-gray-900 text-gray-300">
@@ -16,25 +20,25 @@ const Footer = () => {
               <h3 className="text-white font-bold text-lg">Tech In Rwanda</h3>
             </div>
             <p className="text-sm leading-relaxed text-gray-400">
-              Former. Sécuriser. Innover.<br />
-              Votre partenaire de confiance pour les formations professionnelles en technologie.
+              {t.footer.tagline}<br />
+              {t.footer.description}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">Liens rapides</h3>
+            <h3 className="text-white font-bold text-lg mb-4">{t.footer.quickLinks}</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/formations" className="hover:text-tir-green transition-colors">Formations</Link></li>
-              <li><Link to="/entreprises" className="hover:text-tir-green transition-colors">Entreprises</Link></li>
-              <li><Link to="/stages" className="hover:text-tir-green transition-colors">Stages</Link></li>
-              <li><Link to="/blog" className="hover:text-tir-green transition-colors">Blog</Link></li>
+              <li><Link to="/formations" className="hover:text-tir-green transition-colors">{t.header.formations}</Link></li>
+              <li><Link to="/entreprises" className="hover:text-tir-green transition-colors">{t.header.entreprises}</Link></li>
+              <li><Link to="/stages" className="hover:text-tir-green transition-colors">{t.header.stages}</Link></li>
+              <li><Link to="/blog" className="hover:text-tir-green transition-colors">{t.header.blog}</Link></li>
             </ul>
           </div>
 
           {/* Formations */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">Nos domaines</h3>
+            <h3 className="text-white font-bold text-lg mb-4">{t.footer.domains}</h3>
             <ul className="space-y-2 text-sm text-gray-400">
               <li className="flex items-center space-x-2">
                 <span className="text-tir-blue">▪</span>
@@ -57,7 +61,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">Contact</h3>
+            <h3 className="text-white font-bold text-lg mb-4">{t.footer.contact}</h3>
             <ul className="space-y-3 text-sm text-gray-400">
               <li className="flex items-start space-x-2">
                 <span className="text-tir-green mt-1">📞</span>
@@ -77,7 +81,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 pt-8">
           <div className="text-center text-sm text-gray-500">
-            <p>&copy; {currentYear} Tech In Rwanda. Tous droits réservés.</p>
+            <p>&copy; {currentYear} Tech In Rwanda. {t.footer.rights}</p>
           </div>
         </div>
       </div>

@@ -1,8 +1,12 @@
 import { useState } from 'react'
 import NetworkBackground from '../components/NetworkBackground'
 import ScrollReveal from '../components/ScrollReveal'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../translations'
 
 const Contact = () => {
+  const { language } = useLanguage()
+  const t = translations[language]
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,7 +21,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    alert('Merci ! Nous vous contacterons bientôt.')
+    alert(t.contact.successMessage)
   }
 
   const contacts = [
@@ -48,10 +52,10 @@ const Contact = () => {
         <NetworkBackground className="opacity-20" />
         <div className="section-container relative z-10 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Contactez-nous
+            {t.contact.title}
           </h1>
           <p className="text-2xl text-blue-100 max-w-3xl mx-auto">
-            Une question ? Besoin d'informations ? Nous sommes là pour vous aider
+            {t.contact.subtitle}
           </p>
         </div>
       </section>
@@ -77,13 +81,13 @@ const Contact = () => {
           <ScrollReveal direction="up">
             <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-12 border border-blue-500/20">
               <h2 className="text-3xl font-bold text-white mb-8 text-center">
-              Envoyez-nous un message
+              {t.contact.formTitle}
             </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-gray-300 mb-2">
-                    Nom complet *
+                    {t.contact.name} *
                   </label>
                   <input 
                     type="text"
@@ -97,7 +101,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-gray-300 mb-2">
-                    Email *
+                    {t.contact.email} *
                   </label>
                   <input 
                     type="email"
@@ -114,7 +118,7 @@ const Contact = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-gray-300 mb-2">
-                    Téléphone
+                    {t.contact.phone}
                   </label>
                   <input 
                     type="tel"
@@ -127,7 +131,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-gray-300 mb-2">
-                    Sujet *
+                    {t.contact.subject} *
                   </label>
                   <select 
                     name="subject"
@@ -148,7 +152,7 @@ const Contact = () => {
 
               <div>
                 <label className="block text-sm font-bold text-gray-300 mb-2">
-                  Message *
+                  {t.contact.message} *
                 </label>
                 <textarea 
                   name="message"
@@ -165,7 +169,7 @@ const Contact = () => {
                 type="submit"
                 className="w-full bg-gradient-to-r from-tir-blue to-tir-green text-white font-bold py-4 px-8 rounded-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
               >
-                Envoyer le message
+                {t.contact.send}
               </button>
             </form>
           </div>

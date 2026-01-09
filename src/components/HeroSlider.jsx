@@ -1,40 +1,44 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import NetworkBackground from './NetworkBackground'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../translations'
 
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const { language } = useLanguage()
+  const t = translations[language]
 
   const slides = [
     {
-      title: 'Former. Sécuriser. Innover.',
-      subtitle: 'Devenez expert en technologies de pointe',
-      description: 'Formations certifiantes en réseaux, cybersécurité, cloud et intelligence artificielle',
-      cta: 'Découvrir nos formations',
+      title: t.home.hero1.title,
+      subtitle: t.home.hero1.subtitle,
+      description: t.home.hero1.description,
+      cta: t.home.hero1.cta,
       ctaLink: '/formations',
       gradient: 'from-blue-900 via-blue-800 to-indigo-900'
     },
     {
-      title: 'Certifications Internationales',
-      subtitle: 'CCNA • CCNP • CompTIA • Azure',
-      description: 'Des certifications reconnues mondialement qui boostent votre carrière',
-      cta: 'Voir les certifications',
+      title: t.home.hero2.title,
+      subtitle: t.home.hero2.subtitle,
+      description: t.home.hero2.description,
+      cta: t.home.hero2.cta,
       ctaLink: '/formations',
       gradient: 'from-indigo-900 via-purple-900 to-blue-900'
     },
     {
-      title: 'Partenaire de votre Entreprise',
-      subtitle: 'Formations sur mesure et audits sécurité',
-      description: 'Accompagnement professionnel pour la transformation digitale de votre organisation',
-      cta: 'Solutions entreprises',
+      title: t.home.hero3.title,
+      subtitle: t.home.hero3.subtitle,
+      description: t.home.hero3.description,
+      cta: t.home.hero3.cta,
       ctaLink: '/entreprises',
       gradient: 'from-teal-900 via-blue-900 to-indigo-900'
     },
     {
-      title: 'Intelligence Artificielle & Data',
-      subtitle: 'Machine Learning • Big Data • Data Science',
-      description: 'Maîtrisez les technologies qui façonnent le futur',
-      cta: 'Explorer l\'IA',
+      title: t.home.hero4.title,
+      subtitle: t.home.hero4.subtitle,
+      description: t.home.hero4.description,
+      cta: t.home.hero4.cta,
       ctaLink: '/formations',
       gradient: 'from-purple-900 via-pink-900 to-blue-900'
     }

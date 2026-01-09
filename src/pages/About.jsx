@@ -1,36 +1,38 @@
 import NetworkBackground from '../components/NetworkBackground'
 import ScrollReveal from '../components/ScrollReveal'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../translations'
 
 const About = () => {
+  const { language } = useLanguage()
+  const t = translations[language]
+
   const values = [
     {
-      icon: '🎯',
-      title: 'Notre Mission',
-      description: 'Former la prochaine génération de professionnels IT africains avec des compétences de niveau international.',
+      icon: t.about.mission.icon,
+      title: t.about.mission.title,
+      description: t.about.mission.description,
       gradient: 'from-blue-500 to-cyan-500'
     },
     {
-      icon: '👁️',
-      title: 'Notre Vision',
-      description: 'Devenir le leader de la formation technologique en Afrique de l\'Est et contribuer à la transformation numérique.',
+      icon: t.about.vision.icon,
+      title: t.about.vision.title,
+      description: t.about.vision.description,
       gradient: 'from-purple-500 to-pink-500'
     },
     {
-      icon: '⭐',
-      title: 'Nos Valeurs',
-      description: 'Excellence, Innovation, Intégrité, Accessibilité et Engagement envers le succès de chaque étudiant.',
+      icon: t.about.values.icon,
+      title: t.about.values.title,
+      description: t.about.values.description,
       gradient: 'from-green-500 to-teal-500'
     }
   ]
 
-  const advantages = [
-    { icon: '🎓', title: 'Certifications Reconnues', text: 'Cisco, CompTIA, Microsoft Azure' },
-    { icon: '👨‍🏫', title: 'Instructeurs Experts', text: 'Professionnels certifiés avec expérience terrain' },
-    { icon: '💼', title: '80% Pratique', text: 'Labs, projets réels et études de cas' },
-    { icon: '🌍', title: 'Réseau Professionnel', text: 'Alumni et entreprises partenaires' },
-    { icon: '📚', title: 'Ressources Complètes', text: 'Cours, labs virtuels et support continu' },
-    { icon: '🚀', title: 'Accompagnement Carrière', text: 'Placement et conseils professionnels' }
-  ]
+  const advantages = t.about.advantages.map((adv, idx) => ({
+    icon: ['🎓', '👨‍🏫', '💼', '🌍', '📚', '🚀'][idx],
+    title: adv.title,
+    text: adv.text
+  }))
 
   const partners = [
     { name: 'Cisco Academy', icon: '🏅' },
@@ -46,10 +48,10 @@ const About = () => {
         <NetworkBackground className="opacity-20" />
         <div className="section-container relative z-10 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-            À propos de Tech In Rwanda
+            {t.about.title}
           </h1>
           <p className="text-2xl text-blue-100 max-w-3xl mx-auto">
-            Votre partenaire de confiance pour l'excellence en formation technologique
+            {t.about.subtitle}
           </p>
         </div>
       </section>

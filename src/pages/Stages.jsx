@@ -1,25 +1,16 @@
 import NetworkBackground from '../components/NetworkBackground'
 import ScrollReveal from '../components/ScrollReveal'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../translations'
 
 const Stages = () => {
-  const opportunities = [
-    {
-      icon: '🌐',
-      title: 'Stage CCNA - Réseau Débutant',
-      company: 'Entreprises partenaires',
-      duration: '3-6 mois',
-      description: 'Configuration et maintenance d\'équipements Cisco, troubleshooting réseau niveau 1-2',
-      requirements: ['Certification CCNA', 'Bases routing/switching', 'Motivation et rigueur']
-    },
-    {
-      icon: '🔧',
-      title: 'Stage CCNP - Expert Réseau',
-      company: 'Grandes entreprises IT',
-      duration: '3-6 mois',
-      description: 'Architecture réseau avancée, déploiement solutions enterprise, optimisation performance',
-      requirements: ['Certification CCNP', 'Expérience CCNA', 'Anglais technique']
-    }
-  ]
+  const { language } = useLanguage()
+  const t = translations[language]
+
+  const opportunities = t.stages.opportunities.map((opp, idx) => ({
+    icon: ['🌐', '🔧'][idx],
+    ...opp
+  }))
 
   return (
     <div>
@@ -28,10 +19,10 @@ const Stages = () => {
         <NetworkBackground className="opacity-20" />
         <div className="section-container relative z-10 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Stages & Opportunités
+            {t.stages.title}
           </h1>
           <p className="text-2xl text-purple-100 max-w-3xl mx-auto">
-            Accélérez votre carrière avec une expérience pratique en entreprise
+            {t.stages.subtitle}
           </p>
         </div>
       </section>
@@ -41,11 +32,10 @@ const Stages = () => {
         <ScrollReveal direction="up">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-6">
-            Programme de Stages Tech In Rwanda
+            {t.stages.programTitle}
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            Nos étudiants bénéficient d'opportunités de stages dans des entreprises partenaires au Rwanda et à l'international. 
-            Ces expériences permettent d'appliquer concrètement les compétences acquises en formation.
+            {t.stages.programDescription}
           </p>
         </div>
         </ScrollReveal>
@@ -68,7 +58,7 @@ const Stages = () => {
               </div>
               <p className="text-gray-300 mb-4">{opp.description}</p>
               <div>
-                <h4 className="font-bold text-white mb-2">Prérequis :</h4>
+                <h4 className="font-bold text-white mb-2">{t.stages.prerequisites}</h4>
                 <ul className="space-y-1">
                   {opp.requirements.map((req, i) => (
                     <li key={i} className="flex items-center text-gray-300">
@@ -93,91 +83,37 @@ const Stages = () => {
           <ScrollReveal direction="up">
             <div className="text-center mb-12 md:mb-16 bg-white/5 backdrop-blur-md rounded-2xl md:rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl max-w-4xl mx-auto">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4">
-                💡 Pourquoi Nos Stages ?
+                💡 {t.stages.whyTitle}
               </h2>
               <p className="text-xl text-gray-300">
-                Une expérience professionnelle complète avec du matériel Cisco réel
+                {t.stages.whySubtitle}
               </p>
             </div>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
-            <ScrollReveal direction="left" delay={0}>
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shadow-xl hover:border-tir-blue/50 transition-all">
-                <div className="text-5xl mb-4">🔧</div>
-                <h3 className="text-2xl font-bold text-white mb-3">Matériel Cisco Réel</h3>
-                <p className="text-gray-300">
-                  Pratiquez sur des routeurs et switches Cisco professionnels (séries 2960, 3560, ISR 4000) 
-                  utilisés dans les entreprises du monde entier
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal direction="up" delay={100}>
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shadow-xl hover:border-tir-blue/50 transition-all">
-                <div className="text-5xl mb-4">👨‍💼</div>
-                <h3 className="text-2xl font-bold text-white mb-3">Environnement Professionnel</h3>
-                <p className="text-gray-300">
-                  Intégrez une vraie équipe réseau, participez à des projets réels et développez 
-                  vos compétences techniques et relationnelles
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal direction="right" delay={200}>
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shadow-xl hover:border-tir-blue/50 transition-all">
-                <div className="text-5xl mb-4">📈</div>
-                <h3 className="text-2xl font-bold text-white mb-3">Évolution de Carrière</h3>
-                <p className="text-gray-300">
-                  Augmentez vos chances d'embauche : 85% de nos stagiaires reçoivent une offre 
-                  d'emploi après leur stage
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal direction="left" delay={0}>
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shadow-xl hover:border-tir-green/50 transition-all">
-                <div className="text-5xl mb-4">🎯</div>
-                <h3 className="text-2xl font-bold text-white mb-3">Projets Concrets CCNA/CCNP</h3>
-                <p className="text-gray-300">
-                  Configuration VLANs, routing avancé (OSPF, EIGRP, BGP), VPN, QoS, 
-                  haute disponibilité - comme en production
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal direction="up" delay={100}>
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shadow-xl hover:border-tir-green/50 transition-all">
-                <div className="text-5xl mb-4">🏆</div>
-                <h3 className="text-2xl font-bold text-white mb-3">Certification Reconnue</h3>
-                <p className="text-gray-300">
-                  Attestation de stage valorisant votre CV avec mention des technologies 
-                  maîtrisées et projets réalisés
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal direction="right" delay={200}>
-              <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shadow-xl hover:border-tir-green/50 transition-all">
-                <div className="text-5xl mb-4">🤝</div>
-                <h3 className="text-2xl font-bold text-white mb-3">Mentorat Expert</h3>
-                <p className="text-gray-300">
-                  Accompagnement par des ingénieurs certifiés CCNP/CCIE avec 10+ ans d'expérience 
-                  en infrastructure réseau
-                </p>
-              </div>
-            </ScrollReveal>
+            {t.stages.benefitsList.map((benefit, index) => (
+              <ScrollReveal key={index} direction={index % 3 === 0 ? 'left' : index % 3 === 1 ? 'up' : 'right'} delay={(index % 3) * 100}>
+                <div className={`bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shadow-xl hover:border-${index < 3 ? 'tir-blue' : 'tir-green'}/50 transition-all`}>
+                  <div className="text-5xl mb-4">{['🔧', '👨‍💼', '📈', '🎯', '🏆', '🤝'][index]}</div>
+                  <h3 className="text-2xl font-bold text-white mb-3">{benefit.title}</h3>
+                  <p className="text-gray-300">
+                    {benefit.text}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
 
           {/* Équipements disponibles */}
           <ScrollReveal direction="up">
             <div className="bg-gradient-to-br from-tir-blue/20 to-tir-green/20 backdrop-blur-md rounded-2xl md:rounded-3xl p-6 md:p-10 border border-white/20 shadow-2xl">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6 text-center">
-                🖥️ Équipements Cisco Disponibles pour la Pratique
+                🖥️ {t.stages.equipmentTitle}
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white/10 rounded-xl p-6 border border-white/20">
-                  <h4 className="text-xl font-bold text-tir-yellow mb-4">📡 Pour Stage CCNA</h4>
+                  <h4 className="text-xl font-bold text-tir-yellow mb-4">📡 {t.stages.ccnaEquipment}</h4>
                   <ul className="space-y-2 text-gray-200">
                     <li className="flex items-start">
                       <span className="text-tir-green mr-2">✓</span>
@@ -198,7 +134,7 @@ const Stages = () => {
                   </ul>
                 </div>
                 <div className="bg-white/10 rounded-xl p-6 border border-white/20">
-                  <h4 className="text-xl font-bold text-tir-yellow mb-4">🚀 Pour Stage CCNP</h4>
+                  <h4 className="text-xl font-bold text-tir-yellow mb-4">🚀 {t.stages.ccnpEquipment}</h4>
                   <ul className="space-y-2 text-gray-200">
                     <li className="flex items-start">
                       <span className="text-tir-green mr-2">✓</span>
@@ -221,11 +157,11 @@ const Stages = () => {
               </div>
               <div className="mt-8 text-center">
                 <p className="text-lg text-gray-200 mb-4">
-                  💪 <strong className="text-white">Chaque stagiaire a son propre poste de travail</strong> 
-                  avec accès exclusif au matériel pendant toute la durée du stage
+                  💪 <strong className="text-white">{t.stages.equipmentNote}</strong> 
+                  {t.stages.equipmentDetails}
                 </p>
                 <p className="text-gray-300">
-                  🔒 Pratique intensive de 6h/jour minimum sur équipements réels + 2h théorie et troubleshooting
+                  🔒 {t.stages.practiceTime}
                 </p>
               </div>
             </div>
@@ -240,29 +176,16 @@ const Stages = () => {
         </div>
         <div className="section-container relative z-10">
           <h2 className="text-4xl font-bold text-center text-white mb-12">
-            Comment postuler ?
+            {t.stages.howToApply}
           </h2>
           <div className="grid md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-tir-blue rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-2xl">1</div>
-              <h3 className="font-bold text-white mb-2">Complétez votre formation</h3>
-              <p className="text-gray-300">Obtenez votre certification</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-tir-blue rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-2xl">2</div>
-              <h3 className="font-bold text-white mb-2">Soumettez votre CV</h3>
-              <p className="text-gray-300">Candidatez en ligne</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-tir-blue rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-2xl">3</div>
-              <h3 className="font-bold text-white mb-2">Entretien</h3>
-              <p className="text-gray-300">Rencontrez nos partenaires</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-tir-green rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-2xl">4</div>
-              <h3 className="font-bold text-white mb-2">Commencez</h3>
-              <p className="text-gray-300">Lancez votre carrière</p>
-            </div>
+            {t.stages.applySteps.map((step, index) => (
+              <div key={index} className="text-center">
+                <div className="w-16 h-16 bg-tir-blue rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-2xl">{index + 1}</div>
+                <h3 className="font-bold text-white mb-2">{step.title}</h3>
+                <p className="text-gray-300">{step.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

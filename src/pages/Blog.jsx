@@ -1,7 +1,11 @@
 import NetworkBackground from '../components/NetworkBackground'
 import ScrollReveal from '../components/ScrollReveal'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../translations'
 
 const Blog = () => {
+  const { language } = useLanguage()
+  const t = translations[language]
   const articles = [
     {
       category: 'Réseaux',
@@ -60,10 +64,10 @@ const Blog = () => {
         <NetworkBackground className="opacity-20" />
         <div className="section-container relative z-10 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Blog & Actualités
+            {t.blog.title}
           </h1>
           <p className="text-2xl text-teal-100 max-w-3xl mx-auto">
-            Conseils, tendances et actualités du monde de la tech
+            {t.blog.subtitle}
           </p>
         </div>
       </section>
@@ -82,7 +86,7 @@ const Blog = () => {
                   <span className="text-xs font-bold text-tir-green bg-green-50 px-3 py-1 rounded-full">
                     {article.category}
                   </span>
-                  <span className="text-xs text-gray-500">{article.readTime}</span>
+                  <span className="text-xs text-gray-500">{article.readTime} {t.blog.readTime}</span>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-tir-blue transition-colors">
                   {article.title}
@@ -91,7 +95,7 @@ const Blog = () => {
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-400">{article.date}</span>
                   <span className="text-tir-blue font-semibold group-hover:translate-x-2 transform transition-transform inline-flex items-center">
-                    Lire plus
+                    {t.blog.readMore}
                     <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
