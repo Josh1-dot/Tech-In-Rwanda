@@ -165,12 +165,12 @@ const Contact = () => {
                     required
                     className="w-full px-4 py-3 bg-gray-800/50 border-2 border-blue-500/20 rounded-lg focus:border-tir-blue focus:outline-none transition-colors text-white"
                   >
-                    <option value="">Choisissez un sujet</option>
-                    <option value="formation">Information sur les formations</option>
-                    <option value="inscription">Inscription</option>
-                    <option value="entreprise">Partenariat entreprise</option>
-                    <option value="stage">Opportunité de stage</option>
-                    <option value="autre">Autre</option>
+                    <option value="">{t.contact.subjects.choose}</option>
+                    <option value="formation">{t.contact.subjects.training}</option>
+                    <option value="inscription">{t.contact.subjects.registration}</option>
+                    <option value="entreprise">{t.contact.subjects.partnership}</option>
+                    <option value="stage">{t.contact.subjects.internship}</option>
+                    <option value="autre">{t.contact.subjects.other}</option>
                   </select>
                 </div>
               </div>
@@ -186,7 +186,7 @@ const Contact = () => {
                   required
                   rows={6}
                   className="w-full px-4 py-3 bg-gray-800/50 border-2 border-blue-500/20 rounded-lg focus:border-tir-blue focus:outline-none transition-colors resize-none text-white"
-                  placeholder="Décrivez votre besoin..."
+                  placeholder={t.contact.placeholders.message}
                 ></textarea>
               </div>
 
@@ -207,10 +207,10 @@ const Contact = () => {
         <ScrollReveal direction="up">
           <div className="text-center mb-8 md:mb-12 bg-white/5 backdrop-blur-md rounded-2xl md:rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl max-w-6xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4">
-              📅 Calendrier de Disponibilité 2026
+              📅 {t.contact.calendar.title}
             </h2>
             <p className="text-base md:text-xl text-gray-300">
-              Planifiez votre formation selon nos sessions programmées
+              {t.contact.calendar.subtitle}
             </p>
           </div>
         </ScrollReveal>
@@ -222,15 +222,15 @@ const Contact = () => {
             <div className="flex flex-wrap justify-center gap-6 mb-8 pb-6 border-b border-white/10">
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 rounded bg-green-500"></div>
-                <span className="text-gray-300">Session Ouverte</span>
+                <span className="text-gray-300">{t.contact.calendar.legend.open}</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 rounded bg-yellow-500"></div>
-                <span className="text-gray-300">Dernières Places</span>
+                <span className="text-gray-300">{t.contact.calendar.legend.lastPlaces}</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 rounded bg-gray-600"></div>
-                <span className="text-gray-300">Complet / Fermé</span>
+                <span className="text-gray-300">{t.contact.calendar.legend.full}</span>
               </div>
             </div>
 
@@ -239,19 +239,10 @@ const Contact = () => {
               <table className="w-full text-xs sm:text-sm">
                 <thead>
                   <tr className="border-b border-white/20">
-                    <th className="text-left p-3 text-white font-bold sticky left-0 bg-gray-900/90 backdrop-blur-sm">Formation</th>
-                    <th className="p-2 text-gray-300 font-semibold">Jan</th>
-                    <th className="p-2 text-gray-300 font-semibold">Fév</th>
-                    <th className="p-2 text-gray-300 font-semibold">Mar</th>
-                    <th className="p-2 text-gray-300 font-semibold">Avr</th>
-                    <th className="p-2 text-gray-300 font-semibold">Mai</th>
-                    <th className="p-2 text-gray-300 font-semibold">Jun</th>
-                    <th className="p-2 text-gray-300 font-semibold">Jul</th>
-                    <th className="p-2 text-gray-300 font-semibold">Aoû</th>
-                    <th className="p-2 text-gray-300 font-semibold">Sep</th>
-                    <th className="p-2 text-gray-300 font-semibold">Oct</th>
-                    <th className="p-2 text-gray-300 font-semibold">Nov</th>
-                    <th className="p-2 text-gray-300 font-semibold">Déc</th>
+                    <th className="text-left p-3 text-white font-bold sticky left-0 bg-gray-900/90 backdrop-blur-sm">{t.contact.calendar.formation}</th>
+                    {t.contact.calendar.months.map((month, idx) => (
+                      <th key={idx} className="p-2 text-gray-300 font-semibold">{month}</th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody>
@@ -298,13 +289,13 @@ const Contact = () => {
 
             <div className="mt-8 space-y-3">
               <p className="text-gray-300 text-center">
-                💡 <strong className="text-white">Les inscriptions ouvrent 2 mois avant le début de chaque session</strong>
+                💡 <strong className="text-white">{t.contact.calendar.notes.registration}</strong>
               </p>
               <p className="text-sm text-gray-400 text-center">
-                📞 Pour une date personnalisée ou un groupe privé : +250 785 649 246
+                📞 {t.contact.calendar.notes.contact}
               </p>
               <p className="text-sm text-gray-400 text-center">
-                🌍 Sessions disponibles au Rwanda (Kigali) et en ligne pour l'international
+                🌍 {t.contact.calendar.notes.location}
               </p>
             </div>
           </div>

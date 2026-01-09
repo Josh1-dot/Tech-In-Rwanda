@@ -21,14 +21,14 @@ const Entreprises = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="relative py-32 bg-gradient-to-br from-tir-blue via-blue-800 to-indigo-900 text-white overflow-hidden">
+      <section className="relative py-32 bg-gradient-to-br from-gray-900 via-tir-dark to-gray-900 text-white overflow-hidden">
         <NetworkBackground className="opacity-20" />
         <div className="section-container relative z-10">
           <div className="max-w-4xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               {t.entreprises.title}
             </h1>
-            <p className="text-2xl text-blue-100 mb-8">
+            <p className="text-2xl text-gray-300 mb-8">
               {t.entreprises.subtitle}
             </p>
             <Link 
@@ -72,7 +72,7 @@ const Entreprises = () => {
         </div>
         <div className="section-container relative z-10">
           <h2 className="text-4xl font-bold text-center text-white mb-12">
-            Pourquoi nous choisir ?
+            {t.entreprises.advantagesTitle}
           </h2>
           <div className="grid md:grid-cols-4 gap-6">
             {advantages.map((adv, index) => (

@@ -15,13 +15,13 @@ const Stages = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="relative py-32 bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 text-white overflow-hidden">
+      <section className="relative py-32 bg-gradient-to-br from-gray-900 via-tir-dark to-gray-900 text-white overflow-hidden">
         <NetworkBackground className="opacity-20" />
         <div className="section-container relative z-10 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             {t.stages.title}
           </h1>
-          <p className="text-2xl text-purple-100 max-w-3xl mx-auto">
+          <p className="text-2xl text-gray-300 max-w-3xl mx-auto">
             {t.stages.subtitle}
           </p>
         </div>
@@ -195,10 +195,10 @@ const Stages = () => {
         <ScrollReveal direction="up">
           <div className="text-center mb-16 bg-white/5 backdrop-blur-md rounded-3xl p-10 border border-white/10 shadow-2xl max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              📅 Sessions à Venir
+              📅 {t.stages.upcomingSessions.title}
             </h2>
             <p className="text-xl text-gray-300">
-              Inscrivez-vous dès maintenant aux prochaines sessions de stages
+              {t.stages.upcomingSessions.subtitle}
             </p>
           </div>
         </ScrollReveal>
@@ -231,23 +231,23 @@ const Stages = () => {
                       ? 'bg-red-500/20 text-red-300 border border-red-500/30' 
                       : 'bg-green-500/20 text-green-300 border border-green-500/30'
                   }`}>
-                    {session.status}
+                    {session.placesRestantes <= 3 ? t.stages.upcomingSessions.status.lastPlaces : t.stages.upcomingSessions.status.open}
                   </span>
                 </div>
                 
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center text-gray-300">
                     <span className="mr-2">📆</span>
-                    <span className="text-sm">Début: {session.startDate}</span>
+                    <span className="text-sm">{t.stages.upcomingSessions.start}: {session.startDate}</span>
                   </div>
                   <div className="flex items-center text-gray-300">
                     <span className="mr-2">🏁</span>
-                    <span className="text-sm">Fin: {session.endDate}</span>
+                    <span className="text-sm">{t.stages.upcomingSessions.end}: {session.endDate}</span>
                   </div>
                   <div className="flex items-center text-gray-300">
                     <span className="mr-2">👥</span>
                     <span className="text-sm">
-                      Places restantes: <span className={`font-bold ${
+                      {t.stages.upcomingSessions.remainingPlaces}: <span className={`font-bold ${
                         session.placesRestantes <= 3 ? 'text-red-400' : 'text-green-400'
                       }`}>{session.placesRestantes}</span>/{session.placesTotal}
                     </span>
@@ -264,7 +264,7 @@ const Stages = () => {
                 </div>
 
                 <button className="w-full bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold py-3 rounded-lg hover:bg-white/20 transition-all">
-                  S'inscrire
+                  {t.stages.upcomingSessions.registerButton}
                 </button>
               </div>
             </ScrollReveal>
@@ -275,25 +275,25 @@ const Stages = () => {
         <ScrollReveal direction="up">
           <div className="max-w-3xl mx-auto bg-white/5 backdrop-blur-md rounded-2xl md:rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6 text-center">
-              📝 Formulaire d'Inscription
+              📝 {t.stages.registrationForm.title}
             </h3>
             <form className="space-y-4 md:space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-gray-300 mb-2 font-medium">Nom complet *</label>
+                  <label className="block text-gray-300 mb-2 font-medium">{t.stages.registrationForm.fullName} *</label>
                   <input 
                     type="text" 
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-tir-blue focus:ring-2 focus:ring-tir-blue/50" 
-                    placeholder="Votre nom"
+                    placeholder={t.stages.registrationForm.placeholders.name}
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-300 mb-2 font-medium">Email *</label>
+                  <label className="block text-gray-300 mb-2 font-medium">{t.stages.registrationForm.email} *</label>
                   <input 
                     type="email" 
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-tir-blue focus:ring-2 focus:ring-tir-blue/50" 
-                    placeholder="votre@email.com"
+                    placeholder={t.stages.registrationForm.placeholders.email}
                     required
                   />
                 </div>
@@ -301,21 +301,21 @@ const Stages = () => {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-gray-300 mb-2 font-medium">Téléphone *</label>
+                  <label className="block text-gray-300 mb-2 font-medium">{t.stages.registrationForm.phone} *</label>
                   <input 
                     type="tel" 
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-tir-blue focus:ring-2 focus:ring-tir-blue/50" 
-                    placeholder="+250 xxx xxx xxx"
+                    placeholder={t.stages.registrationForm.placeholders.phone}
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-300 mb-2 font-medium">Session choisie *</label>
+                  <label className="block text-gray-300 mb-2 font-medium">{t.stages.registrationForm.sessionChoice} *</label>
                   <select 
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-tir-blue focus:ring-2 focus:ring-tir-blue/50"
                     required
                   >
-                    <option value="" className="bg-gray-900">Sélectionnez une session</option>
+                    <option value="" className="bg-gray-900">{t.stages.registrationForm.selectSession}</option>
                     <option value="ccna" className="bg-gray-900">Stage CCNA - Réseau Débutant</option>
                     <option value="ccnp" className="bg-gray-900">Stage CCNP - Expert Réseau</option>
                   </select>
@@ -323,31 +323,31 @@ const Stages = () => {
               </div>
 
               <div>
-                <label className="block text-gray-300 mb-2 font-medium">Formation suivie *</label>
+                <label className="block text-gray-300 mb-2 font-medium">{t.stages.registrationForm.trainingCompleted} *</label>
                 <input 
                   type="text" 
                   className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-tir-blue focus:ring-2 focus:ring-tir-blue/50" 
-                  placeholder="Ex: CCNA, Security+, Azure Fundamentals..."
+                  placeholder={t.stages.registrationForm.placeholders.training}
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-gray-300 mb-2 font-medium">CV (lien Google Drive ou Dropbox) *</label>
+                <label className="block text-gray-300 mb-2 font-medium">{t.stages.registrationForm.cvLink} *</label>
                 <input 
                   type="url" 
                   className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-tir-blue focus:ring-2 focus:ring-tir-blue/50" 
-                  placeholder="https://..."
+                  placeholder={t.stages.registrationForm.placeholders.cvLink}
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-gray-300 mb-2 font-medium">Lettre de motivation</label>
+                <label className="block text-gray-300 mb-2 font-medium">{t.stages.registrationForm.motivationLetter}</label>
                 <textarea 
                   rows="5"
                   className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-tir-blue focus:ring-2 focus:ring-tir-blue/50" 
-                  placeholder="Pourquoi souhaitez-vous ce stage ? Quelles sont vos motivations ?"
+                  placeholder={t.stages.registrationForm.motivationPlaceholder}
                 ></textarea>
               </div>
 
@@ -355,7 +355,7 @@ const Stages = () => {
                 type="submit" 
                 className="w-full bg-gradient-to-r from-tir-blue to-tir-green text-white font-bold py-4 rounded-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
               >
-                Envoyer ma candidature
+                {t.stages.registrationForm.submit}
               </button>
             </form>
           </div>

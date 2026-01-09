@@ -169,7 +169,34 @@ export const translations = {
       status: 'Statut',
       available: 'Disponible',
       lastPlaces: 'Dernières places',
-      full: 'Complet'
+      full: 'Complet',
+      calendar: {
+        title: 'Calendrier de Disponibilité 2026',
+        subtitle: 'Planifiez votre formation selon nos sessions programmées',
+        legend: {
+          open: 'Session Ouverte',
+          lastPlaces: 'Dernières Places',
+          full: 'Complet / Fermé'
+        },
+        months: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'],
+        formation: 'Formation',
+        notes: {
+          registration: 'Les inscriptions ouvrent 2 mois avant le début de chaque session',
+          contact: 'Pour une date personnalisée ou un groupe privé : +250 785 649 246',
+          location: 'Sessions disponibles au Rwanda (Kigali) et en ligne pour l\'international'
+        }
+      },
+      subjects: {
+        choose: 'Choisissez un sujet',
+        training: 'Information sur les formations',
+        registration: 'Inscription',
+        partnership: 'Partenariat entreprise',
+        internship: 'Opportunité de stage',
+        other: 'Autre'
+      },
+      placeholders: {
+        message: 'Décrivez votre besoin...'
+      }
     },
     entreprises: {
       title: 'Transformez votre entreprise',
@@ -198,6 +225,7 @@ export const translations = {
           features: ['Hardening systèmes', 'Mise en conformité', 'SOC setup', 'Monitoring continu']
         }
       ],
+      advantagesTitle: 'Pourquoi nous choisir ?',
       advantages: [
         { title: 'Expertise reconnue', text: 'Formateurs certifiés avec expérience terrain' },
         { title: 'Sur mesure', text: 'Programmes adaptés à vos besoins' },
@@ -274,7 +302,39 @@ export const translations = {
         { title: 'Commencez votre stage', text: 'Démarrez votre carrière' }
       ],
       applyTitle: 'Postuler pour un stage',
-      applyButton: 'Soumettre ma candidature'
+      applyButton: 'Soumettre ma candidature',
+      upcomingSessions: {
+        title: 'Sessions à Venir',
+        subtitle: 'Inscrivez-vous dès maintenant aux prochaines sessions de stages',
+        status: {
+          lastPlaces: 'Dernières places',
+          open: 'Inscription ouverte'
+        },
+        start: 'Début',
+        end: 'Fin',
+        remainingPlaces: 'Places restantes',
+        registerButton: 'S\'inscrire'
+      },
+      registrationForm: {
+        title: 'Formulaire d\'Inscription',
+        fullName: 'Nom complet',
+        email: 'Email',
+        phone: 'Téléphone',
+        sessionChoice: 'Session choisie',
+        selectSession: 'Sélectionnez une session',
+        trainingCompleted: 'Formation suivie',
+        cvLink: 'CV (lien Google Drive ou Dropbox)',
+        motivationLetter: 'Lettre de motivation',
+        motivationPlaceholder: 'Pourquoi souhaitez-vous ce stage ? Quelles sont vos motivations ?',
+        submit: 'Envoyer ma candidature',
+        placeholders: {
+          name: 'Votre nom',
+          email: 'votre@email.com',
+          phone: '+250 xxx xxx xxx',
+          training: 'Ex: CCNA, Security+, Azure Fundamentals...',
+          cvLink: 'https://...'
+        }
+      }
     },
     blog: {
       title: 'Blog & Actualités',
@@ -511,7 +571,34 @@ export const translations = {
       status: 'Status',
       available: 'Available',
       lastPlaces: 'Last places',
-      full: 'Full'
+      full: 'Full',
+      calendar: {
+        title: '2026 Availability Calendar',
+        subtitle: 'Plan your training according to our scheduled sessions',
+        legend: {
+          open: 'Open Session',
+          lastPlaces: 'Last Places',
+          full: 'Full / Closed'
+        },
+        months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        formation: 'Training',
+        notes: {
+          registration: 'Registrations open 2 months before the start of each session',
+          contact: 'For a custom date or private group: +250 785 649 246',
+          location: 'Sessions available in Rwanda (Kigali) and online internationally'
+        }
+      },
+      subjects: {
+        choose: 'Choose a subject',
+        training: 'Training information',
+        registration: 'Registration',
+        partnership: 'Business partnership',
+        internship: 'Internship opportunity',
+        other: 'Other'
+      },
+      placeholders: {
+        message: 'Describe your need...'
+      }
     },
     entreprises: {
       title: 'Transform your business',
@@ -540,6 +627,7 @@ export const translations = {
           features: ['System hardening', 'Compliance', 'SOC setup', 'Continuous monitoring']
         }
       ],
+      advantagesTitle: 'Why choose us?',
       advantages: [
         { title: 'Recognized expertise', text: 'Certified trainers with field experience' },
         { title: 'Customized', text: 'Programs tailored to your needs' },
@@ -616,7 +704,39 @@ export const translations = {
         { title: 'Start your internship', text: 'Launch your career' }
       ],
       applyTitle: 'Apply for an internship',
-      applyButton: 'Submit my application'
+      applyButton: 'Submit my application',
+      upcomingSessions: {
+        title: 'Upcoming Sessions',
+        subtitle: 'Register now for upcoming internship sessions',
+        status: {
+          lastPlaces: 'Last places',
+          open: 'Registration open'
+        },
+        start: 'Start',
+        end: 'End',
+        remainingPlaces: 'Remaining places',
+        registerButton: 'Register'
+      },
+      registrationForm: {
+        title: 'Registration Form',
+        fullName: 'Full name',
+        email: 'Email',
+        phone: 'Phone',
+        sessionChoice: 'Session choice',
+        selectSession: 'Select a session',
+        trainingCompleted: 'Training completed',
+        cvLink: 'CV (Google Drive or Dropbox link)',
+        motivationLetter: 'Motivation letter',
+        motivationPlaceholder: 'Why do you want this internship? What are your motivations?',
+        submit: 'Submit my application',
+        placeholders: {
+          name: 'Your name',
+          email: 'your@email.com',
+          phone: '+250 xxx xxx xxx',
+          training: 'Ex: CCNA, Security+, Azure Fundamentals...',
+          cvLink: 'https://...'
+        }
+      }
     },
     blog: {
       title: 'Blog & News',
