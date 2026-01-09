@@ -33,6 +33,12 @@ const Contact = () => {
     },
     {
       icon: '📞',
+      title: 'USA',
+      info: '+1 (248) 819-2368',
+      color: 'from-green-500 to-teal-500'
+    },
+    {
+      icon: '📞',
       title: 'France (1)',
       info: '+33 6 78 27 58 43',
       color: 'from-indigo-500 to-purple-500'
@@ -62,7 +68,7 @@ const Contact = () => {
 
       {/* Contact Info */}
       <section className="section-container -mt-20 relative z-20">
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {contacts.map((contact, index) => (
             <ScrollReveal key={index} direction="left" delay={index * 150}>
               <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl shadow-2xl p-8 text-center transform hover:scale-105 transition-all duration-300 border border-blue-500/20 hover:border-blue-500/50">
