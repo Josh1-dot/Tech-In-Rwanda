@@ -64,7 +64,17 @@ const Footer = () => {
             <h3 className="text-white font-bold text-lg mb-4">{t.footer.contact}</h3>
             <ul className="space-y-3 text-sm text-gray-400">
               <li className="flex items-start space-x-2">
+                <span className="text-tir-green mt-1">�</span>
+                <span>WhatsApp: +250 785 649 246</span>
+              </li>
+              <li className="flex items-start space-x-2">
                 <span className="text-tir-green mt-1">📞</span>
+                <span>Appel: +254 712 345 678</span>
+              </li>
+              <li className="flex items-start space-x-2">                <span className="text-tir-green mt-1">✉️</span>
+                <span>websmatch1@gmail.com</span>
+              </li>
+              <li className="flex items-start space-x-2">                <span className="text-tir-green mt-1">�📞</span>
                 <span>Rwanda: +250 785 649 246</span>
               </li>
               <li className="flex items-start space-x-2">
@@ -78,6 +88,13 @@ const Footer = () => {
               <li className="flex items-start space-x-2">
                 <span className="text-tir-green mt-1">📞</span>
                 <span>France: +33 7 69 84 71 85</span>
+              </li>
+              <li className="flex items-start space-x-2">
+                <span className="text-tir-green mt-1">🏢</span>
+                <div>
+                  <div className="font-semibold text-gray-300">Code officiel de l'entreprise:</div>
+                  <div>No: 146048896 / 1608749</div>
+                </div>
               </li>
             </ul>
           </div>
