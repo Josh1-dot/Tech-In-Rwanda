@@ -10,10 +10,10 @@ const Home = () => {
   const t = translations[language]
   
   const stats = [
-    { number: '500+', label: t.home.stats.students, icon: '👨‍🎓' },
-    { number: '15+', label: t.home.stats.certifications, icon: '🏅' },
+    { number: '17', label: t.home.stats.students, icon: '👨‍🎓' },
+    { number: '14', label: t.home.stats.certifications, icon: '🏅' },
     { number: '95%', label: t.home.stats.satisfaction, icon: '⭐' },
-    { number: '20+', label: t.home.stats.partners, icon: '🤝' }
+    { number: '3', label: t.home.stats.partners, icon: '🤝' }
   ]
 
   const services = [
