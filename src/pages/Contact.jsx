@@ -26,9 +26,21 @@ const Contact = () => {
 
   const contacts = [
     {
-      icon: '📞',
-      title: 'Rwanda',
+      icon: '�',
+      title: 'WhatsApp (Rwanda)',
       info: '+250 785 649 246',
+      color: 'from-green-500 to-teal-500'
+    },
+    {
+      icon: '📞',
+      title: 'Kenya',
+      info: '+254 712 345 678',
+      color: 'from-orange-500 to-red-500'
+    },
+    {
+      icon: '✉️',
+      title: 'Email',
+      info: 'websmatch1@gmail.com',
       color: 'from-blue-500 to-cyan-500'
     },
     {
@@ -48,13 +60,14 @@ const Contact = () => {
       title: 'France (2)',
       info: '+33 7 69 84 71 85',
       color: 'from-purple-500 to-pink-500'
-    }
+    },
+     
   ]
 
   return (
     <div>
       {/* Hero */}
-      <section className="relative py-32 bg-gradient-to-br from-tir-blue via-blue-800 to-indigo-900 text-white overflow-hidden">
+      <section className="relative py-32 bg-gradient-to-br from-gray-900 via-tir-dark to-gray-900 text-white overflow-hidden">
         <NetworkBackground className="opacity-20" />
         <div className="section-container relative z-10 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
@@ -68,7 +81,7 @@ const Contact = () => {
 
       {/* Contact Info */}
       <section className="section-container -mt-20 relative z-20">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
           {contacts.map((contact, index) => (
             <ScrollReveal key={index} direction="left" delay={index * 150}>
               <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl shadow-2xl p-8 text-center transform hover:scale-105 transition-all duration-300 border border-blue-500/20 hover:border-blue-500/50">
@@ -76,7 +89,13 @@ const Contact = () => {
                   {contact.icon}
                 </div>
                 <h3 className="font-bold text-white mb-2">{contact.title}</h3>
-                <a href={`tel:${contact.info.replace(/\s/g, '')}`} className="text-xl text-tir-blue hover:text-tir-green transition-colors">{contact.info}</a>
+                {contact.title === 'Email' ? (
+                  <a href={`mailto:${contact.info}`} className="text-lg text-tir-blue hover:text-tir-green transition-colors break-all">{contact.info}</a>
+                ) : contact.title === 'Code officiel entreprise' ? (
+                  <p className="text-sm text-gray-300">{contact.info}</p>
+                ) : (
+                  <a href={`tel:${contact.info.replace(/\s/g, '')}`} className="text-xl text-tir-blue hover:text-tir-green transition-colors">{contact.info}</a>
+                )}
             </div>
             </ScrollReveal>
           ))}

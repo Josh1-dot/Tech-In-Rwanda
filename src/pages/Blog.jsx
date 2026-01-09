@@ -6,61 +6,16 @@ import { translations } from '../translations'
 const Blog = () => {
   const { language } = useLanguage()
   const t = translations[language]
-  const articles = [
-    {
-      category: 'Réseaux',
-      title: 'Pourquoi la certification CCNA est essentielle en 2026',
-      excerpt: 'Découvrez pourquoi le CCNA reste la certification réseau la plus recherchée par les employeurs...',
-      date: '5 janvier 2026',
-      readTime: '5 min',
-      image: '🌐'
-    },
-    {
-      category: 'Cybersécurité',
-      title: 'L\'importance de la cybersécurité au Rwanda',
-      excerpt: 'Analyse du marché de la cybersécurité en Afrique de l\'Est et les opportunités de carrière...',
-      date: '3 janvier 2026',
-      readTime: '7 min',
-      image: '🔐'
-    },
-    {
-      category: 'Cloud',
-      title: 'Microsoft Azure vs AWS : Quel choix en 2026 ?',
-      excerpt: 'Comparaison détaillée des deux géants du cloud computing pour les professionnels africains...',
-      date: '28 décembre 2025',
-      readTime: '10 min',
-      image: '☁️'
-    },
-    {
-      category: 'IA & Data',
-      title: 'Machine Learning vs Data Science : Quelle différence ?',
-      excerpt: 'Clarification des concepts et des parcours de carrière dans l\'intelligence artificielle...',
-      date: '20 décembre 2025',
-      readTime: '6 min',
-      image: '🤖'
-    },
-    {
-      category: 'Carrière',
-      title: 'Top 10 des compétences IT les plus demandées en 2026',
-      excerpt: 'Les compétences technologiques qui vous permettront de décrocher les meilleurs postes...',
-      date: '15 décembre 2025',
-      readTime: '8 min',
-      image: '💼'
-    },
-    {
-      category: 'Formation',
-      title: 'Comment se préparer efficacement à la certification Security+',
-      excerpt: 'Guide complet et astuces pour réussir l\'examen CompTIA Security+ du premier coup...',
-      date: '10 décembre 2025',
-      readTime: '12 min',
-      image: '📚'
-    }
-  ]
+  
+  const articles = t.blog.articles.map((article, index) => ({
+    ...article,
+    image: ['🌐', '🔐', '☁️', '🤖', '💼', '📚'][index]
+  }))
 
   return (
     <div>
       {/* Hero */}
-      <section className="relative py-32 bg-gradient-to-br from-teal-900 via-blue-900 to-indigo-900 text-white overflow-hidden">
+      <section className="relative py-32 bg-gradient-to-br from-gray-900 via-tir-dark to-gray-900 text-white overflow-hidden">
         <NetworkBackground className="opacity-20" />
         <div className="section-container relative z-10 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
@@ -109,22 +64,23 @@ const Blog = () => {
       </section>
 
       {/* Newsletter */}
-      <section className="bg-gradient-to-r from-tir-blue to-indigo-900 py-20 text-white">
-        <div className="section-container text-center">
+      <section className="bg-gradient-to-br from-gray-900 via-tir-dark to-gray-900 py-20 text-white">
+        <NetworkBackground className="opacity-20" />
+        <div className="section-container text-center relative z-10">
           <h2 className="text-4xl font-bold mb-4">
-            Restez informé
+            {t.blog.newsletter.title}
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Recevez nos derniers articles et actualités directement dans votre boîte mail
+          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            {t.blog.newsletter.description}
           </p>
           <div className="max-w-md mx-auto flex gap-4">
             <input 
               type="email" 
-              placeholder="Votre email" 
+              placeholder={t.blog.newsletter.emailPlaceholder}
               className="flex-1 px-6 py-3 rounded-lg text-gray-900"
             />
-            <button className="bg-tir-green hover:bg-green-600 font-bold px-8 py-3 rounded-lg transition-colors">
-              S'abonner
+            <button className="bg-tir-blue hover:bg-blue-700 font-bold px-8 py-3 rounded-lg transition-colors">
+              {t.blog.newsletter.subscribeButton}
             </button>
           </div>
         </div>

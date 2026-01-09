@@ -146,7 +146,12 @@ export const translations = {
       level: 'Niveau',
       certification: 'Certification',
       viewDetails: 'Voir les détails',
-      objectives: 'Objectifs'
+      objectives: 'Objectifs',
+      cta: {
+        title: 'Formation sur mesure ?',
+        description: 'Nous créons des programmes personnalisés pour vos besoins spécifiques',
+        button: 'Contactez-nous'
+      }
     },
     contact: {
       title: 'Contactez-nous',
@@ -198,7 +203,12 @@ export const translations = {
         { title: 'Sur mesure', text: 'Programmes adaptés à vos besoins' },
         { title: 'ROI mesurable', text: 'Résultats concrets et quantifiables' },
         { title: 'Support continu', text: 'Accompagnement après formation' }
-      ]
+      ],
+      ctaSection: {
+        title: 'Prêt à devenir partenaire ?',
+        description: 'Contactez-nous pour discuter de vos besoins et obtenir une proposition personnalisée',
+        button: 'Contactez-nous'
+      }
     },
     stages: {
       title: 'Stages & Opportunités',
@@ -270,7 +280,57 @@ export const translations = {
       title: 'Blog & Actualités',
       subtitle: 'Restez informé des dernières tendances technologiques',
       readTime: 'min de lecture',
-      readMore: 'Lire l\'article'
+      readMore: 'Lire l\'article',
+      articles: [
+        {
+          category: 'Réseaux',
+          title: 'Pourquoi la certification CCNA est essentielle en 2026',
+          excerpt: 'Découvrez pourquoi le CCNA reste la certification réseau la plus recherchée par les employeurs...',
+          date: '5 janvier 2026',
+          readTime: '5 min'
+        },
+        {
+          category: 'Cybersécurité',
+          title: 'L\'importance de la cybersécurité au Rwanda',
+          excerpt: 'Analyse du marché de la cybersécurité en Afrique de l\'Est et les opportunités de carrière...',
+          date: '3 janvier 2026',
+          readTime: '7 min'
+        },
+        {
+          category: 'Cloud',
+          title: 'Microsoft Azure vs AWS : Quel choix en 2026 ?',
+          excerpt: 'Comparaison détaillée des deux géants du cloud computing pour les professionnels africains...',
+          date: '28 décembre 2025',
+          readTime: '10 min'
+        },
+        {
+          category: 'IA & Data',
+          title: 'Machine Learning vs Data Science : Quelle différence ?',
+          excerpt: 'Clarification des concepts et des parcours de carrière dans l\'intelligence artificielle...',
+          date: '20 décembre 2025',
+          readTime: '6 min'
+        },
+        {
+          category: 'Carrière',
+          title: 'Top 10 des compétences IT les plus demandées en 2026',
+          excerpt: 'Les compétences technologiques qui vous permettront de décrocher les meilleurs postes...',
+          date: '15 décembre 2025',
+          readTime: '8 min'
+        },
+        {
+          category: 'Formation',
+          title: 'Comment se préparer efficacement à la certification Security+',
+          excerpt: 'Guide complet et astuces pour réussir l\'examen CompTIA Security+ du premier coup...',
+          date: '10 décembre 2025',
+          readTime: '12 min'
+        }
+      ],
+      newsletter: {
+        title: 'Restez informé',
+        description: 'Recevez nos derniers articles et actualités directement dans votre boîte mail',
+        emailPlaceholder: 'Votre email',
+        subscribeButton: 'S\'abonner'
+      }
     },
     footer: {
       tagline: 'Former. Sécuriser. Innover.',
@@ -428,7 +488,12 @@ export const translations = {
       level: 'Level',
       certification: 'Certification',
       viewDetails: 'View details',
-      objectives: 'Objectives'
+      objectives: 'Objectives',
+      cta: {
+        title: 'Custom training?',
+        description: 'We create personalized programs for your specific needs',
+        button: 'Contact us'
+      }
     },
     contact: {
       title: 'Contact Us',
@@ -480,7 +545,12 @@ export const translations = {
         { title: 'Customized', text: 'Programs tailored to your needs' },
         { title: 'Measurable ROI', text: 'Concrete and quantifiable results' },
         { title: 'Continuous support', text: 'Support after training' }
-      ]
+      ],
+      ctaSection: {
+        title: 'Ready to become a partner?',
+        description: 'Contact us to discuss your needs and get a personalized proposal',
+        button: 'Contact us'
+      }
     },
     stages: {
       title: 'Internships & Opportunities',
@@ -552,7 +622,57 @@ export const translations = {
       title: 'Blog & News',
       subtitle: 'Stay informed on the latest technology trends',
       readTime: 'min read',
-      readMore: 'Read article'
+      readMore: 'Read article',
+      articles: [
+        {
+          category: 'Networks',
+          title: 'Why CCNA certification is essential in 2026',
+          excerpt: 'Discover why CCNA remains the most sought-after network certification by employers...',
+          date: 'January 5, 2026',
+          readTime: '5 min'
+        },
+        {
+          category: 'Cybersecurity',
+          title: 'The importance of cybersecurity in Rwanda',
+          excerpt: 'Analysis of the cybersecurity market in East Africa and career opportunities...',
+          date: 'January 3, 2026',
+          readTime: '7 min'
+        },
+        {
+          category: 'Cloud',
+          title: 'Microsoft Azure vs AWS: Which choice in 2026?',
+          excerpt: 'Detailed comparison of the two cloud computing giants for African professionals...',
+          date: 'December 28, 2025',
+          readTime: '10 min'
+        },
+        {
+          category: 'AI & Data',
+          title: 'Machine Learning vs Data Science: What\'s the difference?',
+          excerpt: 'Clarification of concepts and career paths in artificial intelligence...',
+          date: 'December 20, 2025',
+          readTime: '6 min'
+        },
+        {
+          category: 'Career',
+          title: 'Top 10 most in-demand IT skills in 2026',
+          excerpt: 'The technology skills that will help you land the best jobs...',
+          date: 'December 15, 2025',
+          readTime: '8 min'
+        },
+        {
+          category: 'Training',
+          title: 'How to effectively prepare for Security+ certification',
+          excerpt: 'Complete guide and tips to pass the CompTIA Security+ exam on the first try...',
+          date: 'December 10, 2025',
+          readTime: '12 min'
+        }
+      ],
+      newsletter: {
+        title: 'Stay Informed',
+        description: 'Receive our latest articles and news directly in your inbox',
+        emailPlaceholder: 'Your email',
+        subscribeButton: 'Subscribe'
+      }
     },
     footer: {
       tagline: 'Train. Secure. Innovate.',

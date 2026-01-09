@@ -65,7 +65,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-gray-400">
               <li className="flex items-start space-x-2">
                 <span className="text-tir-green mt-1">�</span>
-                <span>WhatsApp: +250 785 649 246</span>
+                <span>WhatsApp(Rwanda): +250 785 649 246</span>
               </li>
               <li className="flex items-start space-x-2">
                 <span className="text-tir-green mt-1">📞</span>
@@ -74,9 +74,7 @@ const Footer = () => {
               <li className="flex items-start space-x-2">                <span className="text-tir-green mt-1">✉️</span>
                 <span>websmatch1@gmail.com</span>
               </li>
-              <li className="flex items-start space-x-2">                <span className="text-tir-green mt-1">�📞</span>
-                <span>Rwanda: +250 785 649 246</span>
-              </li>
+               
               <li className="flex items-start space-x-2">
                 <span className="text-tir-green mt-1">📞</span>
                 <span>USA: +1 (248) 819-2368</span>

@@ -122,20 +122,20 @@ const Formations = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 bg-gradient-to-r from-tir-green to-green-600 text-white overflow-hidden">
-        <NetworkBackground className="opacity-10" />
+      <section className="relative py-20 bg-gradient-to-br from-gray-900 via-tir-dark to-gray-900 text-white overflow-hidden">
+        <NetworkBackground className="opacity-20" />
         <div className="section-container text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Formation sur mesure ?
+            {t.formations.cta.title}
           </h2>
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-            Nous créons des programmes personnalisés pour vos besoins spécifiques
+            {t.formations.cta.description}
           </p>
           <a 
             href="/contact" 
             className="inline-block bg-white text-tir-green hover:bg-gray-100 font-bold py-4 px-10 rounded-lg transition-all duration-300 shadow-2xl hover:scale-105"
           >
-            Contactez-nous
+            {t.formations.cta.button}
           </a>
         </div>
       </section>

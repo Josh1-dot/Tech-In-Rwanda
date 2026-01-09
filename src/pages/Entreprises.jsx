@@ -89,20 +89,20 @@ const Entreprises = () => {
       </section>
 
       {/* CTA */}
-      <section className="relative py-20 bg-gradient-to-r from-tir-green to-green-600 text-white overflow-hidden">
-        <NetworkBackground className="opacity-10" />
+      <section className="relative py-20 bg-gradient-to-br from-gray-900 via-tir-dark to-gray-900 text-white overflow-hidden">
+        <NetworkBackground className="opacity-20" />
         <div className="section-container text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Prêt à devenir partenaire ?
+            {t.entreprises.ctaSection.title}
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Contactez-nous pour discuter de vos besoins et obtenir une proposition personnalisée
+            {t.entreprises.ctaSection.description}
           </p>
           <Link 
             to="/contact"
             className="inline-block bg-white text-tir-green hover:bg-gray-100 font-bold py-4 px-10 rounded-lg transition-all duration-300 shadow-2xl hover:scale-105"
           >
-            Contactez-nous
+            {t.entreprises.ctaSection.button}
           </Link>
         </div>
       </section>
