@@ -1072,10 +1072,6 @@ const FormationDetail = () => {
                   <span className="text-3xl">🎓</span>
                   <span>{formation.certification}</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-                  <span className="text-3xl">💰</span>
-                  <span className="font-bold">{formation.price}</span>
-                </div>
               </div>
             </div>
           </div>
