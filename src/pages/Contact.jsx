@@ -172,49 +172,6 @@ const Contact = () => {
           </ScrollReveal>
         </div>
       </section>
-
-      {/* Info supplémentaires */}
-      <section className="relative py-20 mt-20 overflow-hidden">
-        <NetworkBackground className="opacity-10" />
-        <div className="section-container relative z-10">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <ScrollReveal direction="up" delay={0}>
-              <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/50 transition-all">
-                <div className="text-4xl mb-3">⏰</div>
-                <h3 className="font-bold text-white mb-2">Heures d'ouverture</h3>
-                <p className="text-gray-300">Lun - Ven: 8h00 - 18h00</p>
-                <p className="text-gray-300">Sam: 9h00 - 13h00</p>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal direction="up" delay={150}>
-              <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/50 transition-all">
-                <div className="text-4xl mb-3">✉️</div>
-                <h3 className="font-bold text-white mb-2">Email</h3>
-                <a href="mailto:info@techinrwanda.rw" className="text-tir-blue hover:text-tir-green">
-                  info@techinrwanda.rw
-                </a>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal direction="up" delay={300}>
-              <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/50 transition-all">
-                <div className="text-4xl mb-3">🌍</div>
-                <h3 className="font-bold text-white mb-2">Réseaux sociaux</h3>
-                <div className="flex justify-center gap-4 mt-3">
-                  <a href="#" className="w-10 h-10 bg-tir-blue rounded-full flex items-center justify-center text-white hover:bg-tir-green transition-colors">
-                    f
-                  </a>
-                  <a href="#" className="w-10 h-10 bg-tir-blue rounded-full flex items-center justify-center text-white hover:bg-tir-green transition-colors">
-                    in
-                  </a>
-                  <a href="#" className="w-10 h-10 bg-tir-blue rounded-full flex items-center justify-center text-white hover:bg-tir-green transition-colors">
-                    X
-                  </a>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
     </div>
   )
 }
