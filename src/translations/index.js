@@ -13,7 +13,7 @@ export const translations = {
       welcome: {
         title: 'Bienvenue chez Tech In Rwanda',
         subtitle: 'Votre Centre d\'Excellence en Formation Technologique',
-        description: 'Tech In Rwanda est le premier centre de formation technologique au Rwanda, spécialisé dans les certifications internationales en réseaux, cybersécurité, cloud computing et intelligence artificielle. Nous formons les talents IT de demain avec des programmes certifiants reconnus mondialement.'
+        description: 'Tech In Rwanda est une entreprise de formation technologique au Rwanda, spécialisée dans les certifications internationales en réseaux, cybersécurité, cloud computing et intelligence artificielle. Nous formons les talents IT de demain avec des programmes certifiants reconnus mondialement.'
       },
       hero1: {
         title: 'Former. Sécuriser. Innover.',
@@ -295,7 +295,7 @@ export const translations = {
       welcome: {
         title: 'Welcome to Tech In Rwanda',
         subtitle: 'Your Center of Excellence in Technology Training',
-        description: 'Tech In Rwanda is the leading technology training center in Rwanda, specializing in international certifications in networks, cybersecurity, cloud computing and artificial intelligence. We train tomorrow\'s IT talents with globally recognized certification programs.'
+        description: 'Tech In Rwanda is a technology training company in Rwanda, specializing in international certifications in networks, cybersecurity, cloud computing and artificial intelligence. We train tomorrow\'s IT talents with globally recognized certification programs.'
       },
       hero1: {
         title: 'Train. Secure. Innovate.',
