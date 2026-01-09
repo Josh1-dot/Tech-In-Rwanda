@@ -24,17 +24,17 @@ const Header = () => {
   return (
     <header className="bg-gray-900/95 backdrop-blur-sm shadow-lg border-b border-blue-500/20 sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-tir-blue to-tir-green rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
-              <span className="text-white font-bold text-xl">TIR</span>
+          <Link to="/" className="flex items-center space-x-4 group">
+            <div className="w-16 h-16 bg-gradient-to-br from-tir-blue to-tir-green rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
+              <span className="text-white font-bold text-2xl">TIR</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-tir-blue to-tir-green bg-clip-text text-transparent">
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-tir-blue to-tir-green bg-clip-text text-transparent">
                 Tech In Rwanda
               </h1>
-              <p className="text-xs text-gray-400">{t.footer.tagline}</p>
+              <p className="text-sm text-gray-400">{t.footer.tagline}</p>
             </div>
           </Link>
 
@@ -44,7 +44,7 @@ const Header = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`font-medium transition-all duration-300 relative ${
+                className={`text-lg font-semibold transition-all duration-300 relative ${
                   isActive(link.path)
                     ? 'text-tir-blue'
                     : 'text-gray-300 hover:text-tir-blue'
