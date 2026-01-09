@@ -34,7 +34,7 @@ const Header = () => {
               <h1 className="text-xl font-bold bg-gradient-to-r from-tir-blue to-tir-green bg-clip-text text-transparent">
                 Tech In Rwanda
               </h1>
-              <p className="text-xs text-gray-400">Former. Sécuriser. Innover.</p>
+              <p className="text-xs text-gray-400">{t.footer.tagline}</p>
             </div>
           </Link>
 
