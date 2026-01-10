@@ -40,7 +40,7 @@ const Contact = () => {
     {
       icon: '✉️',
       title: 'Email',
-      info: 'websmatch1@gmail.com',
+      info: 'techinrwanda.contact@gmail.com',
       color: 'from-blue-500 to-cyan-500'
     },
     {
