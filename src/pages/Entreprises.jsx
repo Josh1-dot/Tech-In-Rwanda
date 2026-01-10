@@ -25,10 +25,10 @@ const Entreprises = () => {
         <NetworkBackground className="opacity-20" />
         <div className="section-container relative z-10">
           <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               {t.entreprises.title}
             </h1>
-            <p className="text-2xl text-gray-300 mb-8">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8">
               {t.entreprises.subtitle}
             </p>
             <Link 

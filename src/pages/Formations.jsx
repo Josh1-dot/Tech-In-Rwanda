@@ -40,10 +40,10 @@ const Formations = () => {
         </div>
         <NetworkBackground className="opacity-20 relative z-0" />
         <div className="section-container relative z-10 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 px-4">
             {t.formations.title}
           </h1>
-          <p className="text-2xl text-blue-100 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 max-w-3xl mx-auto px-4">
             {t.formations.subtitle}
           </p>
         </div>

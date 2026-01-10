@@ -1085,30 +1085,30 @@ const FormationDetail = () => {
           <Link to="/formations" className="inline-flex items-center text-white/80 hover:text-white mb-6 transition-colors">
             ← Retour aux formations
           </Link>
-          <div className="flex items-start gap-6">
-            <div className="text-8xl drop-shadow-2xl">{formation.image}</div>
-            <div className="flex-1 bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
-              <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold mb-4">
+          <div className="flex flex-col md:flex-row items-start gap-6">
+            <div className="text-6xl md:text-8xl drop-shadow-2xl mx-auto md:mx-0">{formation.image}</div>
+            <div className="flex-1 bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-8 shadow-2xl border border-white/20 w-full">
+              <div className="inline-block px-3 py-1 md:px-4 md:py-2 bg-white/20 backdrop-blur-sm rounded-full text-xs md:text-sm font-semibold mb-3 md:mb-4">
                 {formation.category}
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight break-words">
                 {formation.title}
               </h1>
-              <p className="text-2xl text-white mb-8 max-w-4xl">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-6 md:mb-8 max-w-4xl">
                 {formation.description}
               </p>
-              <div className="flex flex-wrap gap-6 text-lg">
-                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-                  <span className="text-3xl">⏱️</span>
-                  <span>{formation.duration}</span>
+              <div className="flex flex-wrap gap-3 md:gap-6 text-sm md:text-base lg:text-lg">
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-2 md:px-4 md:py-2 rounded-lg">
+                  <span className="text-xl md:text-3xl">⏱️</span>
+                  <span className="text-xs sm:text-sm md:text-base">{formation.duration}</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-                  <span className="text-3xl">📈</span>
-                  <span>{formation.level}</span>
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-2 md:px-4 md:py-2 rounded-lg">
+                  <span className="text-xl md:text-3xl">📈</span>
+                  <span className="text-xs sm:text-sm md:text-base">{formation.level}</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-                  <span className="text-3xl">🎓</span>
-                  <span>{formation.certification}</span>
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-2 md:px-4 md:py-2 rounded-lg">
+                  <span className="text-xl md:text-3xl">🎓</span>
+                  <span className="text-xs sm:text-sm md:text-base">{formation.certification}</span>
                 </div>
               </div>
             </div>
