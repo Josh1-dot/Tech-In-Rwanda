@@ -123,6 +123,13 @@ export const translations = {
         description: 'Excellence, Innovation, Intégrité, Accessibilité et Engagement envers le succès de chaque étudiant.'
       },
       historyTitle: 'Notre Histoire',
+      whyChooseTitle: 'Pourquoi choisir Tech In Rwanda ?',
+      certificationsTitle: 'Certifications & Partenariats',
+      history: {
+        paragraph1: 'ech In Rwanda (TIR) a été fondé avec une vision claire : démocratiser l\'accès aux formations technologiques de haute qualité au Rwanda et en Afrique. Dans un monde en constante évolution technologique, nous avons identifié un besoin crucial de professionnels qualifiés.',
+        paragraph2: 'Conscients du fossé croissant entre les compétences disponibles et les besoins du marché, nous avons créé TIR pour offrir des formations certifiantes reconnues internationalement, dispensées par des experts passionnés et expérimentés.',
+        paragraph3: 'Aujourd\'hui, nous sommes fiers d\'avoir formé des centaines de professionnels qui excellent dans leurs domaines et contribuent activement à la croissance du secteur technologique africain et mondial.'
+      },
       advantages: [
         { title: 'Certifications Reconnues', text: 'Cisco, CompTIA, Microsoft Azure' },
         { title: 'Instructeurs Experts', text: 'Professionnels certifiés avec expérience terrain' },
@@ -525,6 +532,13 @@ export const translations = {
         description: 'Excellence, Innovation, Integrity, Accessibility and Commitment to the success of each student.'
       },
       historyTitle: 'Our Story',
+      whyChooseTitle: 'Why choose Tech In Rwanda?',
+      certificationsTitle: 'Certifications & Partnerships',
+      history: {
+        paragraph1: 'ech In Rwanda (TIR) was founded with a clear vision: to democratize access to high-quality technology training in Rwanda and Africa. In a constantly evolving technological world, we identified a crucial need for qualified professionals.',
+        paragraph2: 'Aware of the growing gap between available skills and market needs, we created TIR to offer internationally recognized certifying training, delivered by passionate and experienced experts.',
+        paragraph3: 'Today, we are proud to have trained hundreds of professionals who excel in their fields and actively contribute to the growth of the African and global technology sector.'
+      },
       advantages: [
         { title: 'Recognized Certifications', text: 'Cisco, CompTIA, Microsoft Azure' },
         { title: 'Expert Instructors', text: 'Certified professionals with field experience' },

@@ -44,13 +44,13 @@ const About = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-tir-blue via-blue-800 to-indigo-900 text-white overflow-hidden">
+      <section className="relative py-32 bg-gradient-to-br from-gray-900 via-tir-dark to-gray-900 text-white overflow-hidden">
         <NetworkBackground className="opacity-20" />
         <div className="section-container relative z-10 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
             {t.about.title}
           </h1>
-          <p className="text-2xl text-blue-100 max-w-3xl mx-auto">
+          <p className="text-2xl text-gray-300 max-w-3xl mx-auto">
             {t.about.subtitle}
           </p>
         </div>
@@ -83,7 +83,7 @@ const About = () => {
         <div className="section-container relative z-10">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-12">
-              Notre Histoire
+              {t.about.historyTitle}
             </h2>
             <ScrollReveal direction="up">
               <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl shadow-xl p-10 relative overflow-hidden border border-blue-500/20">
@@ -91,13 +91,13 @@ const About = () => {
                 <div className="pl-6">
                   <p className="text-lg text-gray-300 leading-relaxed mb-6">
                   <span className="text-4xl text-tir-blue font-bold float-left mr-3 mt-1">T</span>
-                  ech In Rwanda (TIR) a été fondé avec une vision claire : démocratiser l'accès aux formations technologiques de haute qualité au Rwanda et en Afrique. Dans un monde en constante évolution technologique, nous avons identifié un besoin crucial de professionnels qualifiés.
+                  {t.about.history.paragraph1}
                 </p>
                 <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                  Conscients du fossé croissant entre les compétences disponibles et les besoins du marché, nous avons créé TIR pour offrir des formations certifiantes reconnues internationalement, dispensées par des experts passionnés et expérimentés.
+                  {t.about.history.paragraph2}
                 </p>
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  Aujourd'hui, nous sommes fiers d'avoir formé des centaines de professionnels qui excellent dans leurs domaines et contribuent activement à la croissance du secteur technologique africain et mondial.
+                  {t.about.history.paragraph3}
                 </p>
               </div>
             </div>
@@ -109,7 +109,7 @@ const About = () => {
       {/* Pourquoi TIR */}
       <section className="section-container">
         <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-12">
-          Pourquoi choisir Tech In Rwanda ?
+          {t.about.whyChooseTitle}
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {advantages.map((adv, index) => (
@@ -131,7 +131,7 @@ const About = () => {
         <NetworkBackground className="opacity-10" />
         <div className="section-container relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
-            Certifications & Partenariats
+            {t.about.certificationsTitle}
           </h2>
           <div className="grid md:grid-cols-4 gap-6">
             {partners.map((partner, index) => (

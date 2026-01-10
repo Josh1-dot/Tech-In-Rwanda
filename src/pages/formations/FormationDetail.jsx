@@ -1,6 +1,8 @@
 import { useParams, Link } from 'react-router-dom'
 import NetworkBackground from '../../components/NetworkBackground'
 import ScrollReveal from '../../components/ScrollReveal'
+import { useLanguage } from '../../contexts/LanguageContext'
+import { getFormationDetailData } from '../../data/formationDetailData'
 
 const formationsData = {
   'ccna': {
@@ -873,15 +875,51 @@ const formationsData = {
 
 const FormationDetail = () => {
   const { slug } = useParams()
-  const formation = formationsData[slug]
+  const { language } = useLanguage()
+  const t = {
+    fr: {
+      notFound: 'Formation non trouvée',
+      backToFormations: 'Retour aux formations',
+      objectives: 'Objectifs de la formation',
+      practicalExamples: '💻 Exemples Pratiques & Projets',
+      program: '📚 Programme détaillé',
+      whyTrain: '💡 Pourquoi se former ?',
+      certificateBenefits: '🏆 Avantages du certificat',
+      careerPaths: '🚀 Débouchés professionnels',
+      readyToStart: 'Prêt à commencer ?',
+      joinStudents: 'Rejoignez des centaines d\'étudiants qui ont transformé leur carrière avec cette formation',
+      enrollmentInfo: 'Inscription & Renseignements',
+      callNow: '📞 Appeler maintenant',
+      prerequisites: 'Prérequis'
+    },
+    en: {
+      notFound: 'Training not found',
+      backToFormations: 'Back to training programs',
+      objectives: 'Training objectives',
+      practicalExamples: '💻 Practical Examples & Projects',
+      program: '📚 Detailed program',
+      whyTrain: '💡 Why get trained?',
+      certificateBenefits: '🏆 Certificate benefits',
+      careerPaths: '🚀 Career opportunities',
+      readyToStart: 'Ready to start?',
+      joinStudents: 'Join hundreds of students who have transformed their careers with this training',
+      enrollmentInfo: 'Enrollment & Information',
+      callNow: '📞 Call now',
+      prerequisites: 'Prerequisites'
+    }
+  }[language]
+  
+  // Charger les données traduites si disponibles, sinon utiliser les données en dur
+  const translatedData = getFormationDetailData(language)
+  const formation = translatedData[slug] || formationsData[slug]
 
   if (!formation) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Formation non trouvée</h1>
+          <h1 className="text-4xl font-bold text-white mb-4">{t.notFound}</h1>
           <Link to="/formations" className="text-tir-blue hover:text-tir-green">
-            Retour aux formations
+            {t.backToFormations}
           </Link>
         </div>
       </div>
@@ -1099,7 +1137,7 @@ const FormationDetail = () => {
       {formation.practicalExamples && (
         <section className="section-container">
           <ScrollReveal direction="up">
-            <h2 className="text-4xl font-bold text-white mb-12 text-center">💻 Exemples Pratiques & Projets</h2>
+            <h2 className="text-4xl font-bold text-white mb-12 text-center">{t.practicalExamples}</h2>
           </ScrollReveal>
           <div className="grid md:grid-cols-2 gap-8">
             {formation.practicalExamples.map((example, index) => (
@@ -1134,7 +1172,7 @@ const FormationDetail = () => {
       {/* Programme */}
       <section className="section-container">
         <ScrollReveal direction="up">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">📚 Programme détaillé</h2>
+          <h2 className="text-4xl font-bold text-white mb-12 text-center">{t.program}</h2>
         </ScrollReveal>
         <div className="grid md:grid-cols-2 gap-6">
           {formation.program.map((module, index) => (
@@ -1162,7 +1200,7 @@ const FormationDetail = () => {
           <div className="grid md:grid-cols-2 gap-12">
             <ScrollReveal direction="left">
               <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20">
-                <h2 className="text-3xl font-bold text-white mb-6">💡 Pourquoi se former ?</h2>
+                <h2 className="text-3xl font-bold text-white mb-6">{t.whyTrain}</h2>
                 <ul className="space-y-4">
                   {formation.benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start gap-3">
@@ -1176,7 +1214,7 @@ const FormationDetail = () => {
 
             <ScrollReveal direction="right">
               <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20">
-                <h2 className="text-3xl font-bold text-white mb-6">🏆 Avantages du certificat</h2>
+                <h2 className="text-3xl font-bold text-white mb-6">{t.certificateBenefits}</h2>
                 <ul className="space-y-4">
                   {formation.certificateBenefits.map((benefit, index) => (
                     <li key={index} className="flex items-start gap-3">
@@ -1195,7 +1233,7 @@ const FormationDetail = () => {
       <section className="section-container">
         <ScrollReveal direction="up">
           <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-blue-500/20 text-center">
-            <h2 className="text-4xl font-bold text-white mb-8">🚀 Débouchés professionnels</h2>
+            <h2 className="text-4xl font-bold text-white mb-8">{t.careerPaths}</h2>
             <div className="grid md:grid-cols-4 gap-6">
               {formation.careerPaths.map((career, index) => (
                 <div key={index} className="bg-gradient-to-br from-tir-blue/20 to-tir-green/20 rounded-xl p-6 border border-blue-500/30">
@@ -1213,26 +1251,26 @@ const FormationDetail = () => {
           <div className={`bg-gradient-to-br ${formation.gradient} rounded-2xl p-12 text-center text-white relative overflow-hidden`}>
             <NetworkBackground className="opacity-20" />
             <div className="relative z-10">
-              <h2 className="text-4xl font-bold mb-6">Prêt à commencer ?</h2>
+              <h2 className="text-4xl font-bold mb-6">{t.readyToStart}</h2>
               <p className="text-xl mb-8 max-w-2xl mx-auto">
-                Rejoignez des centaines d'étudiants qui ont transformé leur carrière avec cette formation
+                {t.joinStudents}
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link 
                   to="/contact"
                   className="bg-white text-tir-dark font-bold py-4 px-8 rounded-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
                 >
-                  Inscription & Renseignements
+                  {t.enrollmentInfo}
                 </Link>
                 <a 
                   href="tel:+250785649246"
                   className="bg-tir-dark/50 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-lg hover:bg-tir-dark transition-all duration-300"
                 >
-                  📞 Appeler maintenant
+                  {t.callNow}
                 </a>
               </div>
               <p className="mt-6 text-white/80">
-                <strong>Prérequis:</strong> {formation.prerequisites}
+                <strong>{t.prerequisites}:</strong> {formation.prerequisites}
               </p>
             </div>
           </div>
