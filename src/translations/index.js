@@ -53,7 +53,7 @@ export const translations = {
         },
         cybersecurity: {
           title: 'Cybersécurité',
-          items: ['Security+', 'CySA+', 'Ethical Hacking', 'SOC Analyst']
+          items: ['Security+', 'CySA+', 'Ethical Hacking']
         },
         cloud: {
           title: 'Cloud Computing',

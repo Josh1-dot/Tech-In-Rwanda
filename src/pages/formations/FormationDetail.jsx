@@ -1120,7 +1120,7 @@ const FormationDetail = () => {
       <section className="section-container">
         <ScrollReveal direction="up">
           <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-blue-500/20">
-            <h2 className="text-4xl font-bold text-white mb-8">🎯 Objectifs de la formation</h2>
+            <h2 className="text-4xl font-bold text-white mb-8 text-center">🎯 Objectifs de la formation</h2>
             <div className="grid md:grid-cols-2 gap-4">
               {formation.objectives.map((obj, index) => (
                 <div key={index} className="flex items-start gap-3">
@@ -1141,7 +1141,7 @@ const FormationDetail = () => {
           </ScrollReveal>
           <div className="grid md:grid-cols-2 gap-8">
             {formation.practicalExamples.map((example, index) => (
-              <ScrollReveal key={index} direction={index % 2 === 0 ? 'left' : 'right'} delay={index * 100}>
+              <ScrollReveal key={index} direction="up" delay={index * 100}>
                 <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl overflow-hidden border border-blue-500/20 hover:border-blue-500/50 transition-all group">
                   <div className="relative h-48 overflow-hidden">
                     <img 
@@ -1152,9 +1152,9 @@ const FormationDetail = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent"></div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-2xl font-bold text-white mb-3">{example.title}</h3>
-                    <p className="text-gray-300 mb-4">{example.description}</p>
-                    <div className="flex flex-wrap gap-2">
+                    <h3 className="text-2xl font-bold text-white mb-3 text-center">{example.title}</h3>
+                    <p className="text-gray-300 mb-4 text-center">{example.description}</p>
+                    <div className="flex flex-wrap gap-2 justify-center">
                       {example.skills.map((skill, idx) => (
                         <span key={idx} className="px-3 py-1 bg-blue-500/20 text-tir-blue text-sm rounded-full border border-blue-500/30">
                           {skill}
@@ -1176,9 +1176,9 @@ const FormationDetail = () => {
         </ScrollReveal>
         <div className="grid md:grid-cols-2 gap-6">
           {formation.program.map((module, index) => (
-            <ScrollReveal key={index} direction={index % 2 === 0 ? 'left' : 'right'} delay={index * 100}>
+            <ScrollReveal key={index} direction="up" delay={index * 100}>
               <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20 hover:border-blue-500/50 transition-all">
-                <h3 className="text-2xl font-bold text-white mb-4">{module.module}</h3>
+                <h3 className="text-2xl font-bold text-white mb-4 text-center">{module.module}</h3>
                 <ul className="space-y-3">
                   {module.topics.map((topic, idx) => (
                     <li key={idx} className="flex items-start gap-3">
@@ -1198,9 +1198,9 @@ const FormationDetail = () => {
         <NetworkBackground className="opacity-10" />
         <div className="section-container relative z-10">
           <div className="grid md:grid-cols-2 gap-12">
-            <ScrollReveal direction="left">
+            <ScrollReveal direction="up">
               <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20">
-                <h2 className="text-3xl font-bold text-white mb-6">{t.whyTrain}</h2>
+                <h2 className="text-3xl font-bold text-white mb-6 text-center">{t.whyTrain}</h2>
                 <ul className="space-y-4">
                   {formation.benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start gap-3">
@@ -1212,9 +1212,9 @@ const FormationDetail = () => {
               </div>
             </ScrollReveal>
 
-            <ScrollReveal direction="right">
+            <ScrollReveal direction="up">
               <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20">
-                <h2 className="text-3xl font-bold text-white mb-6">{t.certificateBenefits}</h2>
+                <h2 className="text-3xl font-bold text-white mb-6 text-center">{t.certificateBenefits}</h2>
                 <ul className="space-y-4">
                   {formation.certificateBenefits.map((benefit, index) => (
                     <li key={index} className="flex items-start gap-3">
