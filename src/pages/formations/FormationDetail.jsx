@@ -909,9 +909,10 @@ const FormationDetail = () => {
     }
   }[language]
   
-  // Charger les données traduites si disponibles, sinon utiliser les données en dur
+  // Charger les données traduites si disponibles, sinon utiliser les données en dur en français
   const translatedData = getFormationDetailData(language)
-  const formation = translatedData[slug] || formationsData[slug]
+  const formation = translatedData[slug] || (language === 'en' ? getFormationDetailData('fr')[slug] : null) || formationsData[slug]
+  const isTranslationAvailable = !!translatedData[slug]
 
   if (!formation) {
     return (
@@ -928,6 +929,14 @@ const FormationDetail = () => {
 
   return (
     <div>
+      {/* Sticky Back Button */}
+      <div className="sticky top-4 z-50 section-container">
+        <Link to="/formations" className="inline-flex items-center bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-700 hover:to-red-800 transition-all font-semibold px-4 py-2 rounded-lg shadow-lg animate-pulse hover:animate-none">
+          <span className="mr-2">←</span>
+          {t.backToFormations}
+        </Link>
+      </div>
+
       {/* Hero */}
       <section className={`relative py-32 text-white overflow-hidden`}>
         {/* Image de fond pour formations réseau */}
@@ -1082,9 +1091,6 @@ const FormationDetail = () => {
           <div className={`absolute inset-0 bg-gradient-to-br ${formation.gradient} z-0`}></div>
         )}
         <div className="section-container relative z-10">
-          <Link to="/formations" className="inline-flex items-center text-white/80 hover:text-white mb-6 transition-colors">
-            ← Retour aux formations
-          </Link>
           <div className="flex flex-col md:flex-row items-start gap-6">
             <div className="text-6xl md:text-8xl drop-shadow-2xl mx-auto md:mx-0">{formation.image}</div>
             <div className="flex-1 bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-8 shadow-2xl border border-white/20 w-full">

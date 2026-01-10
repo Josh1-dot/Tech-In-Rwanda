@@ -90,7 +90,7 @@ const Footer = () => {
               <li className="flex items-start space-x-2">
                 <span className="text-tir-green mt-1">🏢</span>
                 <div>
-                  <div className="font-semibold text-gray-300">Code officiel de l'entreprise:</div>
+                  <div className="font-semibold text-gray-300">{t.footer.companyCode}</div>
                   <div>No: 146048896 / 1608749</div>
                 </div>
               </li>

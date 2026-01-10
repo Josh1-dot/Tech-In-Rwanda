@@ -405,6 +405,7 @@ export const translations = {
       quickLinks: 'Liens rapides',
       domains: 'Nos domaines',
       contact: 'Contact',
+      companyCode: 'Code officiel de l\'entreprise:',
       rights: 'Tous droits réservés.'
     }
   },
@@ -814,6 +815,7 @@ export const translations = {
       quickLinks: 'Quick links',
       domains: 'Our domains',
       contact: 'Contact',
+      companyCode: 'Official company code:',
       rights: 'All rights reserved.'
     }
   }
