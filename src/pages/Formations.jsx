@@ -54,8 +54,8 @@ const Formations = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {filteredFormations.map((formation, index) => (
             <ScrollReveal key={index} direction="left" delay={(index % 3) * 150}>
-              <Link to={`/formations/${formation.slug}`} className="block">
-                <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group transform hover:-translate-y-2 border border-blue-500/20 hover:border-blue-500/50 cursor-pointer">
+              <Link to={`/formations/${formation.slug}`} className="block h-full">
+                <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group transform hover:-translate-y-2 border border-blue-500/20 hover:border-blue-500/50 cursor-pointer h-full flex flex-col">
                   {/* Gradient header */}
                   <div className={`h-2 bg-gradient-to-r ${formation.gradient}`}></div>
                   
@@ -66,7 +66,7 @@ const Formations = () => {
                     </div>
                   )}
 
-                  <div className="p-6">
+                  <div className="p-6 flex flex-col flex-grow">
                 {/* Icon */}
                 <div className="text-5xl mb-4">{formation.icon}</div>
 
@@ -76,16 +76,16 @@ const Formations = () => {
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-300 mb-4">{formation.description}</p>
+                <p className="text-gray-300 mb-4 line-clamp-2">{formation.description}</p>
 
                 {/* Objectives */}
-                <div className="mb-4">
+                <div className="mb-4 flex-grow">
                   <h4 className="font-bold text-white mb-2 text-sm">{t.formations.objectives} :</h4>
                   <ul className="space-y-1">
-                    {formation.objectives.map((obj, i) => (
+                    {formation.objectives.slice(0, 3).map((obj, i) => (
                       <li key={i} className="flex items-start text-sm text-gray-300">
                         <span className="text-tir-green mr-2 flex-shrink-0">✓</span>
-                        <span>{obj}</span>
+                        <span className="line-clamp-1">{obj}</span>
                       </li>
                     ))}
                   </ul>
@@ -110,7 +110,7 @@ const Formations = () => {
                 </div>
 
                 {/* CTA Button */}
-                <div className={`w-full bg-gradient-to-r ${formation.gradient} text-white font-bold py-3 px-6 rounded-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-center`}>
+                <div className={`w-full bg-gradient-to-r ${formation.gradient} text-white font-bold py-3 px-6 rounded-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-center mt-auto`}>
                   {t.formations.viewDetails} →
                 </div>
                   </div>

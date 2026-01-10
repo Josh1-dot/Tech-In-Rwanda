@@ -48,11 +48,11 @@ const Entreprises = () => {
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <ScrollReveal key={index} direction="left" delay={index * 150}>
+            <ScrollReveal key={index} direction="up" delay={index * 150}>
               <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl p-8 transition-all duration-300 transform hover:-translate-y-2 border border-blue-500/20 hover:border-blue-500/50">
-              <div className="text-6xl mb-4">{service.icon}</div>
-              <h3 className="text-2xl font-bold text-white mb-3">{service.title}</h3>
-              <p className="text-gray-300 mb-6">{service.description}</p>
+              <div className="text-6xl mb-4 text-center md:text-left">{service.icon}</div>
+              <h3 className="text-2xl font-bold text-white mb-3 text-center md:text-left">{service.title}</h3>
+              <p className="text-gray-300 mb-6 text-center md:text-left">{service.description}</p>
               <ul className="space-y-2">
                 {service.features.map((feature, i) => (
                   <li key={i} className="flex items-center text-gray-300">

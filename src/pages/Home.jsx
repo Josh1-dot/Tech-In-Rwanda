@@ -188,12 +188,12 @@ const Home = () => {
       <section className="relative py-20 overflow-hidden">
         <div className="section-container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <ScrollReveal direction="left">
+            <ScrollReveal direction="up">
               <div className="bg-white/5 backdrop-blur-md rounded-2xl md:rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 text-center md:text-left">
                   {t.home.enterprise.title}
                 </h2>
-                <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
+                <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 text-center md:text-left">
                   {t.home.enterprise.description}
                 </p>
                 <ul className="space-y-4 mb-8">
@@ -204,16 +204,18 @@ const Home = () => {
                     </li>
                   ))}
                 </ul>
-                <Link 
-                  to="/entreprises"
-                  className="inline-block bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg hover:bg-white/20 transform hover:scale-105 transition-all duration-300 shadow-xl text-sm md:text-base"
-                >
-                  {t.home.enterprise.cta}
-                </Link>
+                <div className="text-center md:text-left">
+                  <Link 
+                    to="/entreprises"
+                    className="inline-block bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-lg hover:bg-white/20 transform hover:scale-105 transition-all duration-300 shadow-xl text-sm md:text-base"
+                  >
+                    {t.home.enterprise.cta}
+                  </Link>
+                </div>
               </div>
             </ScrollReveal>
 
-            <ScrollReveal direction="right">
+            <ScrollReveal direction="up">
               <div className="relative">
                 <div className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-blue-500/20">
                   <div className="grid grid-cols-2 gap-4">
