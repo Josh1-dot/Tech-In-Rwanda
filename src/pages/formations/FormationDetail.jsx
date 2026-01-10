@@ -1139,11 +1139,11 @@ const FormationDetail = () => {
           <ScrollReveal direction="up">
             <h2 className="text-4xl font-bold text-white mb-12 text-center">{t.practicalExamples}</h2>
           </ScrollReveal>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {formation.practicalExamples.map((example, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
                 <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl overflow-hidden border border-blue-500/20 hover:border-blue-500/50 transition-all group">
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-32 sm:h-40 md:h-48 overflow-hidden">
                     <img 
                       src={example.imageUrl} 
                       alt={example.title}
@@ -1151,12 +1151,12 @@ const FormationDetail = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent"></div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-2xl font-bold text-white mb-3 text-center">{example.title}</h3>
-                    <p className="text-gray-300 mb-4 text-center">{example.description}</p>
+                  <div className="p-4 md:p-6">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 text-center">{example.title}</h3>
+                    <p className="text-sm md:text-base text-gray-300 mb-3 md:mb-4 text-center">{example.description}</p>
                     <div className="flex flex-wrap gap-2 justify-center">
                       {example.skills.map((skill, idx) => (
-                        <span key={idx} className="px-3 py-1 bg-blue-500/20 text-tir-blue text-sm rounded-full border border-blue-500/30">
+                        <span key={idx} className="px-2 py-1 md:px-3 md:py-1 bg-blue-500/20 text-tir-blue text-xs md:text-sm rounded-full border border-blue-500/30">
                           {skill}
                         </span>
                       ))}
