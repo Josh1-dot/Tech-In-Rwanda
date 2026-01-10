@@ -930,7 +930,7 @@ const FormationDetail = () => {
   return (
     <div>
       {/* Sticky Back Button */}
-      <div className="sticky top-4 z-50 section-container">
+      <div className="sticky top-28 z-50 section-container">
         <Link to="/formations" className="inline-flex items-center bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-700 hover:to-red-800 transition-all font-semibold px-4 py-2 rounded-lg shadow-lg animate-pulse hover:animate-none">
           <span className="mr-2">←</span>
           {t.backToFormations}
@@ -938,7 +938,7 @@ const FormationDetail = () => {
       </div>
 
       {/* Hero */}
-      <section className={`relative py-32 text-white overflow-hidden`}>
+      <section className={`relative pt-0 pb-48 md:pb-56 text-white overflow-hidden min-h-[600px] md:min-h-[700px]`}>
         {/* Image de fond pour formations réseau */}
         {slug === 'ccna' && (
           <div className="absolute inset-0 z-0">

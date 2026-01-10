@@ -15,7 +15,7 @@ const Blog = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="relative py-32 bg-gradient-to-br from-gray-900 via-tir-dark to-gray-900 text-white overflow-hidden">
+      <section className="relative pt-20 pb-32 bg-gradient-to-br from-gray-900 via-tir-dark to-gray-900 text-white overflow-hidden">
         <NetworkBackground className="opacity-20" />
         <div className="section-container relative z-10 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
