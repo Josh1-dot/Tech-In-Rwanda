@@ -72,7 +72,7 @@ const Footer = () => {
                 <span>Kenya +254 712 345 678</span>
               </li>
               <li className="flex items-start space-x-2">                <span className="text-tir-green mt-1">✉️</span>
-                <span>websmatch1@gmail.com</span>
+                <span>techinrwanda.contact@gmail.com</span>
               </li>
                
               <li className="flex items-start space-x-2">
