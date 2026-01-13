@@ -70,7 +70,7 @@ const WelcomeMessage = () => {
   if (!shouldRender) return null
 
   return (
-    <div className={`fixed top-24 sm:top-28 md:top-32 left-0 right-0 z-50 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`fixed top-16 sm:top-20 md:top-24 left-0 right-0 z-50 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       <div className="section-container px-4">
         <div className={`max-w-4xl bg-black/30 backdrop-blur-md rounded-2xl md:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 border border-white/10 transform transition-all duration-1000 ${isVisible ? 'translate-x-0' : '-translate-x-full'}`}>
           <div className="text-center">
