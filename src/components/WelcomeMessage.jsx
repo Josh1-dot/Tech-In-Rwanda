@@ -29,17 +29,17 @@ const WelcomeMessage = () => {
   useEffect(() => {
     if (!isMounted) return
 
-    // Apparition après 2 secondes (garantie sur tous les appareils)
+    // Apparition après 3 secondes
     const showTimer = setTimeout(() => {
       setShouldRender(true)
       setTimeout(() => setIsVisible(true), 100)
-    }, 2000)
+    }, 3000)
 
-    // Masquer après 8 secondes au total (2s d'attente + 6s d'affichage)
+    // Masquer après 13 secondes au total (3s d'attente + 10s d'affichage)
     const hideTimer = setTimeout(() => {
       setIsVisible(false)
       setTimeout(() => setShouldRender(false), 1000)
-    }, 8000)
+    }, 13000)
 
     return () => {
       clearTimeout(showTimer)
@@ -54,15 +54,15 @@ const WelcomeMessage = () => {
     const switchLanguage = () => {
       setCurrentLanguage(prev => {
         const nextLang = prev === 'fr' ? 'en' : 'fr'
-        // Si on passe à l'anglais : 3 secondes, si on passe au français : 2 secondes
-        const duration = nextLang === 'en' ? 3000 : 2000
+        // 5 secondes pour chaque langue
+        const duration = 5000
         timeoutId = setTimeout(switchLanguage, duration)
         return nextLang
       })
     }
 
-    // Premier changement après 2 secondes (français vers anglais)
-    timeoutId = setTimeout(switchLanguage, 2000)
+    // Premier changement après 5 secondes (français vers anglais)
+    timeoutId = setTimeout(switchLanguage, 5000)
 
     return () => clearTimeout(timeoutId)
   }, [isVisible])
