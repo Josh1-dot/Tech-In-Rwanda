@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import NetworkBackground from './components/NetworkBackground'
+import PageLoader from './components/PageLoader'
 import Home from './pages/Home'
 import About from './pages/About'
 import Formations from './pages/Formations'
@@ -14,6 +15,9 @@ import Contact from './pages/Contact'
 function App() {
   return (
     <div className="min-h-screen flex flex-col relative">
+      {/* Page Loader */}
+      <PageLoader />
+      
       {/* Background globale avec circuits */}
       <div className="fixed inset-0 z-0">
         <NetworkBackground className="opacity-30" />

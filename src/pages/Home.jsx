@@ -1,6 +1,7 @@
 import HeroSlider from '../components/HeroSlider'
 import NetworkBackground from '../components/NetworkBackground'
 import ScrollReveal from '../components/ScrollReveal'
+import WelcomeMessage from '../components/WelcomeMessage'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../contexts/LanguageContext'
 import { translations } from '../translations'
@@ -57,6 +58,9 @@ const Home = () => {
 
       {/* Contenu par-dessus */}
       <div className="relative z-10">
+      {/* Welcome Message */}
+      <WelcomeMessage />
+      
       {/* Hero Slider */}
       <HeroSlider />
 
@@ -67,7 +71,7 @@ const Home = () => {
             <div className="max-w-5xl mx-auto bg-white/5 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl">
               <div className="text-center">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-                  {t.home.welcome.title}
+                  Tech In Rwanda
                 </h2>
                 <p className="text-xl md:text-2xl text-tir-blue font-semibold mb-6">
                   {t.home.welcome.subtitle}
