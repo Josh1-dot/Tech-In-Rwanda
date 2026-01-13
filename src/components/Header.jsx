@@ -43,11 +43,11 @@ const Header = () => {
         <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-4 group">
-            <div className="w-16 h-16 bg-gradient-to-br from-tir-blue to-tir-green rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
-              <span className="text-white font-bold text-2xl">TIR</span>
+            <div>
+              <span className="text-white font-extrabold text-4xl drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">TIR</span>
             </div>
             <div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-tir-blue to-tir-green bg-clip-text text-transparent">
+              <h1 className="text-2xl font-bold text-white">
                 Tech In Rwanda
               </h1>
               <p className="text-sm text-gray-400">{t.footer.tagline}</p>
