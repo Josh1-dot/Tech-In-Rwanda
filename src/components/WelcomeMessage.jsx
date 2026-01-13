@@ -4,6 +4,7 @@ const WelcomeMessage = () => {
   const [isVisible, setIsVisible] = useState(false)
   const [shouldRender, setShouldRender] = useState(false)
   const [currentLanguage, setCurrentLanguage] = useState('fr')
+  const [isMounted, setIsMounted] = useState(false)
 
   const messages = {
     fr: {
@@ -20,24 +21,31 @@ const WelcomeMessage = () => {
 
   const t = messages[currentLanguage]
 
+  // S'assurer que le composant est bien monté
   useEffect(() => {
-    // Apparition après 1 seconde
+    setIsMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isMounted) return
+
+    // Apparition après 2 secondes (garantie sur tous les appareils)
     const showTimer = setTimeout(() => {
       setShouldRender(true)
       setTimeout(() => setIsVisible(true), 100)
-    }, 1000)
+    }, 2000)
 
-    // Masquer après 7 secondes au total (1s d'attente + 6s d'affichage)
+    // Masquer après 8 secondes au total (2s d'attente + 6s d'affichage)
     const hideTimer = setTimeout(() => {
       setIsVisible(false)
       setTimeout(() => setShouldRender(false), 1000)
-    }, 7000)
+    }, 8000)
 
     return () => {
       clearTimeout(showTimer)
       clearTimeout(hideTimer)
     }
-  }, [])
+  }, [isMounted])
 
   useEffect(() => {
     if (!isVisible) return
