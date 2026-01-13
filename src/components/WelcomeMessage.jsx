@@ -70,17 +70,17 @@ const WelcomeMessage = () => {
   if (!shouldRender) return null
 
   return (
-    <div className={`fixed top-16 sm:top-20 md:top-24 left-0 right-0 z-50 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`fixed top-12 sm:top-14 md:top-16 left-0 right-0 z-50 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       <div className="section-container px-4">
-        <div className={`max-w-4xl bg-black/30 backdrop-blur-md rounded-2xl md:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 border border-white/10 transform transition-all duration-1000 ${isVisible ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className={`max-w-4xl bg-black/30 backdrop-blur-md rounded-2xl md:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8 border border-white/10 transform transition-all duration-1000 ${isVisible ? 'translate-x-0' : '-translate-x-full'}`}>
           <div className="text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 animate-slide-in-words">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4 animate-slide-in-words">
               <span className="inline-block" style={{ animationDelay: '0.2s' }}>{t.welcome}</span>{' '}
               <span className="inline-block" style={{ animationDelay: '0.4s' }}>
                 {t.company}
               </span>
             </h2>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 animate-slide-in-words" style={{ animationDelay: '0.6s' }}>
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 animate-slide-in-words" style={{ animationDelay: '0.6s' }}>
               {t.subtitle}
             </p>
           </div>
