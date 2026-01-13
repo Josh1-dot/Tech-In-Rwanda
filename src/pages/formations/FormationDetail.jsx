@@ -880,7 +880,7 @@ const FormationDetail = () => {
     fr: {
       notFound: 'Formation non trouvée',
       backToFormations: 'Retour aux formations',
-      objectives: 'Objectifs de la formation',
+      objectives: '🎯 Objectifs de la formation',
       practicalExamples: '💻 Exemples Pratiques & Projets',
       program: '📚 Programme détaillé',
       whyTrain: '💡 Pourquoi se former ?',
@@ -895,7 +895,7 @@ const FormationDetail = () => {
     en: {
       notFound: 'Training not found',
       backToFormations: 'Back to training programs',
-      objectives: 'Training objectives',
+      objectives: '🎯 Training Objectives',
       practicalExamples: '💻 Practical Examples & Projects',
       program: '📚 Detailed program',
       whyTrain: '💡 Why get trained?',
@@ -1126,7 +1126,7 @@ const FormationDetail = () => {
       <section className="section-container">
         <ScrollReveal direction="up">
           <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-blue-500/20">
-            <h2 className="text-4xl font-bold text-white mb-8 text-center">🎯 Objectifs de la formation</h2>
+            <h2 className="text-4xl font-bold text-white mb-8 text-center">{t.objectives}</h2>
             <div className="grid md:grid-cols-2 gap-4">
               {formation.objectives.map((obj, index) => (
                 <div key={index} className="flex items-start gap-3">

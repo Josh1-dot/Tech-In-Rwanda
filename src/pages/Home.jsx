@@ -122,15 +122,15 @@ const Home = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {services.map((service, index) => (
               <ScrollReveal key={index} direction="left" delay={index * 150}>
-                <div className="group relative bg-white/5 backdrop-blur-md rounded-2xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-300 overflow-hidden border border-white/10 hover:border-white/20">
+                <div className="group relative h-full bg-white/5 backdrop-blur-md rounded-2xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-300 overflow-hidden border border-white/10 hover:border-white/20">
                   <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
                   
-                  <div className="relative z-10">
+                  <div className="relative z-10 h-full flex flex-col">
                     <div className="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
                       {service.icon}
                     </div>
                     <h3 className="text-xl font-bold text-white mb-4">{service.title}</h3>
-                    <ul className="space-y-2 mb-6">
+                    <ul className="space-y-2 mb-6 flex-grow">
                       {service.items.map((item, i) => (
                         <li key={i} className="flex items-center text-gray-400">
                           <span className="w-2 h-2 bg-tir-green rounded-full mr-2"></span>
@@ -173,10 +173,10 @@ const Home = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {t.home.whyUs.features.map((item, index) => (
               <ScrollReveal key={index} direction="left" delay={index * 200}>
-                <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 border border-white/10 shadow-2xl">
+                <div className="h-full bg-white/5 backdrop-blur-md rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 border border-white/10 shadow-2xl flex flex-col">
                   <div className="text-5xl mb-4">{['🎓', '👨‍🏫', '💼'][index]}</div>
                   <h3 className="text-2xl font-bold mb-3 text-white">{item.title}</h3>
-                  <p className="text-gray-300">{item.text}</p>
+                  <p className="text-gray-300 flex-grow">{item.text}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -221,19 +221,19 @@ const Home = () => {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-gray-800/50 rounded-lg p-6 text-center shadow-lg border border-blue-500/10">
                       <div className="text-3xl mb-2">🏢</div>
-                      <div className="font-bold text-gray-300">Entreprises</div>
+                      <div className="font-bold text-gray-300">{t.home.enterprise.icons.companies}</div>
                     </div>
                     <div className="bg-gray-800/50 rounded-lg p-6 text-center shadow-lg border border-blue-500/10">
                       <div className="text-3xl mb-2">🎯</div>
-                      <div className="font-bold text-gray-300">Sur mesure</div>
+                      <div className="font-bold text-gray-300">{t.home.enterprise.icons.custom}</div>
                     </div>
                     <div className="bg-gray-800/50 rounded-lg p-6 text-center shadow-lg border border-blue-500/10">
                       <div className="text-3xl mb-2">🔒</div>
-                      <div className="font-bold text-gray-300">Sécurité</div>
+                      <div className="font-bold text-gray-300">{t.home.enterprise.icons.security}</div>
                     </div>
                     <div className="bg-gray-800/50 rounded-lg p-6 text-center shadow-lg border border-blue-500/10">
                       <div className="text-3xl mb-2">📊</div>
-                      <div className="font-bold text-gray-300">Audits</div>
+                      <div className="font-bold text-gray-300">{t.home.enterprise.icons.audits}</div>
                     </div>
                   </div>
                 </div>

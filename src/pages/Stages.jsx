@@ -34,7 +34,7 @@ const Stages = () => {
             <h2 className="text-4xl font-bold text-white mb-6">
             {t.stages.programTitle}
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-lg text-gray-200 leading-relaxed">
             {t.stages.programDescription}
           </p>
         </div>
@@ -94,10 +94,10 @@ const Stages = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
             {t.stages.benefitsList.map((benefit, index) => (
               <ScrollReveal key={index} direction={index % 3 === 0 ? 'left' : index % 3 === 1 ? 'up' : 'right'} delay={(index % 3) * 100}>
-                <div className={`bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shadow-xl hover:border-${index < 3 ? 'tir-blue' : 'tir-green'}/50 transition-all`}>
+                <div className={`h-full bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shadow-xl hover:border-${index < 3 ? 'tir-blue' : 'tir-green'}/50 transition-all flex flex-col`}>
                   <div className="text-5xl mb-4">{['🔧', '👨‍💼', '📈', '🎯', '🏆', '🤝'][index]}</div>
                   <h3 className="text-2xl font-bold text-white mb-3">{benefit.title}</h3>
-                  <p className="text-gray-300">
+                  <p className="text-gray-300 flex-grow">
                     {benefit.text}
                   </p>
                 </div>
@@ -155,14 +155,23 @@ const Stages = () => {
                   </ul>
                 </div>
               </div>
-              <div className="mt-8 text-center">
-                <p className="text-lg text-gray-200 mb-4">
-                  💪 <strong className="text-white">{t.stages.equipmentNote}</strong> 
-                  {t.stages.equipmentDetails}
-                </p>
-                <p className="text-gray-300">
-                  🔒 {t.stages.practiceTime}
-                </p>
+              <div className="mt-8 grid md:grid-cols-2 gap-6">
+                <div className="bg-white/10 rounded-xl p-6 border border-white/20 flex items-start">
+                  <span className="text-3xl mr-4 flex-shrink-0">💪</span>
+                  <div>
+                    <p className="text-base text-gray-200 leading-relaxed">
+                      <strong className="text-white">Chaque stagiaire a son propre poste de travail</strong> avec accès exclusif au matériel pendant toute la durée du stage
+                    </p>
+                  </div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-6 border border-white/20 flex items-start">
+                  <span className="text-3xl mr-4 flex-shrink-0">🔒</span>
+                  <div>
+                    <p className="text-base text-gray-200 leading-relaxed">
+                      Pratique intensive de <strong className="text-white">6h/jour minimum</strong> sur équipements réels + <strong className="text-white">2h théorie</strong> et troubleshooting
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </ScrollReveal>

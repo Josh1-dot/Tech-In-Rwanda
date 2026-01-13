@@ -95,7 +95,13 @@ export const translations = {
           'Audits réseau et cybersécurité',
           'Certification de vos employés'
         ],
-        cta: 'Devenir partenaire'
+        cta: 'Devenir partenaire',
+        icons: {
+          companies: 'Entreprises',
+          custom: 'Sur mesure',
+          security: 'Sécurité',
+          audits: 'Audits'
+        }
       },
       finalCta: {
         title: 'Prêt à transformer votre avenir ?',
@@ -505,7 +511,13 @@ export const translations = {
           'Network and cybersecurity audits',
           'Employee certification'
         ],
-        cta: 'Become a partner'
+        cta: 'Become a partner',
+        icons: {
+          companies: 'Companies',
+          custom: 'Custom',
+          security: 'Security',
+          audits: 'Audits'
+        }
       },
       finalCta: {
         title: 'Ready to transform your future?',

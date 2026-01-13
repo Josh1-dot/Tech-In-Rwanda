@@ -114,12 +114,12 @@ const About = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {advantages.map((adv, index) => (
             <ScrollReveal key={index} direction="left" delay={index * 100}>
-              <div className="group bg-gray-900/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-blue-500/20 hover:border-tir-blue">
+              <div className="group h-full bg-gray-900/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-blue-500/20 hover:border-tir-blue flex flex-col">
               <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
                 {adv.icon}
               </div>
               <h3 className="text-xl font-bold text-white mb-2">{adv.title}</h3>
-              <p className="text-gray-300">{adv.text}</p>
+              <p className="text-gray-300 flex-grow">{adv.text}</p>
             </div>
             </ScrollReveal>
           ))}
