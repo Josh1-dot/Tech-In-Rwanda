@@ -116,7 +116,7 @@ const Footer = () => {
             <p>&copy; {currentYear} Tech In Rwanda. {t.footer.rights}</p>
             <Link 
               to="/admin/appointments" 
-              className="text-gray-700 hover:text-gray-500 transition-colors opacity-30 hover:opacity-50"
+              className="text-gray-700 hover:text-gray-500 transition-colors opacity-30 hover:opacity-50 p-3 -m-3 touch-manipulation"
               title="Administration"
             >
               ⚙️
