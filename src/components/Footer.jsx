@@ -112,8 +112,15 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 pt-8">
-          <div className="text-center text-sm text-gray-500">
+          <div className="flex items-center justify-between text-sm text-gray-500">
             <p>&copy; {currentYear} Tech In Rwanda. {t.footer.rights}</p>
+            <Link 
+              to="/admin/appointments" 
+              className="text-gray-700 hover:text-gray-500 transition-colors opacity-30 hover:opacity-50"
+              title="Administration"
+            >
+              ⚙️
+            </Link>
           </div>
         </div>
       </div>
