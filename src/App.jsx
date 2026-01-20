@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import NetworkBackground from './components/NetworkBackground'
@@ -14,12 +15,20 @@ import Contact from './pages/Contact'
 import Calendar from './pages/Calendar'
 import Appointment from './pages/Appointment'
 import AdminAppointments from './pages/AdminAppointments'
+import { trackPageView } from './utils/analytics'
 
 function App() {
+  const location = useLocation()
+
+  // Tracker chaque changement de page
+  useEffect(() => {
+    trackPageView(location.pathname)
+  }, [location])
+
   return (
     <div className="min-h-screen flex flex-col relative">
-      {/* Page Loader */}
-      <PageLoader />
+      {/* Page Loader - sauf pour la page admin */}
+      {location.pathname !== '/admin/appointments' && <PageLoader />}
       
       {/* Background globale avec circuits */}
       <div className="fixed inset-0 z-0">
