@@ -11,6 +11,9 @@ import Entreprises from './pages/Entreprises'
 import Stages from './pages/Stages'
 import Blog from './pages/Blog'
 import Contact from './pages/Contact'
+import Calendar from './pages/Calendar'
+import Appointment from './pages/Appointment'
+import AdminAppointments from './pages/AdminAppointments'
 
 function App() {
   return (
@@ -36,6 +39,9 @@ function App() {
             <Route path="/stages" element={<Stages />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/calendar" element={<Calendar />} />
+            <Route path="/appointment" element={<Appointment />} />
+            <Route path="/admin/appointments" element={<AdminAppointments />} />
           </Routes>
         </main>
         <Footer />

@@ -267,6 +267,12 @@ const Home = () => {
                   {t.home.finalCta.viewFormations}
                 </Link>
                 <Link 
+                  to="/appointment"
+                  className="bg-gradient-to-r from-tir-green to-green-600 hover:from-tir-green hover:to-green-700 text-white font-bold py-4 px-10 rounded-lg transition-all duration-300 shadow-2xl hover:scale-105"
+                >
+                  📅 {t.contact.bookAppointment}
+                </Link>
+                <Link 
                   to="/contact"
                   className="border-2 border-white hover:bg-white hover:text-gray-900 font-bold py-4 px-10 rounded-lg transition-all duration-300"
                 >

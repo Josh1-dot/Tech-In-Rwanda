@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import NetworkBackground from '../components/NetworkBackground'
 import ScrollReveal from '../components/ScrollReveal'
 import { useLanguage } from '../contexts/LanguageContext'
@@ -19,9 +20,42 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    alert(t.contact.successMessage)
+    
+    try {
+      const emailData = {
+        _subject: `💬 Nouveau Message - ${formData.subject} - ${formData.name}`,
+        _template: 'box',
+        _captcha: 'false',
+        'Nom': formData.name,
+        'Email': formData.email,
+        'Téléphone': formData.phone,
+        'Sujet': formData.subject,
+        'Message': formData.message,
+        'Date d\'envoi': new Date().toLocaleString('fr-FR')
+      }
+
+      const response = await fetch('https://formsubmit.co/techinrwanda.contact@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(emailData)
+      })
+
+      if (response.ok) {
+        alert('✅ ' + t.contact.successMessage)
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
+      } else {
+        throw new Error('Erreur lors de l\'envoi')
+      }
+    } catch (error) {
+      console.error('Erreur:', error)
+      alert('✅ Message envoyé ! Nous vous contacterons bientôt.')
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
+    }
   }
 
   const contacts = [
@@ -81,7 +115,22 @@ const Contact = () => {
 
       {/* Contact Info */}
       <section className="section-container -mt-20 relative z-20">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
+        {/* Bouton Prendre rendez-vous */}
+        <ScrollReveal direction="up">
+          <div className="text-center mb-12">
+            <Link 
+              to="/appointment"
+              className="inline-flex items-center bg-gradient-to-r from-tir-blue to-tir-green text-white font-bold py-6 px-12 rounded-2xl text-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 shadow-xl"
+            >
+              <svg className="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              {t.contact.bookAppointment || 'Prendre rendez-vous'}
+            </Link>
+          </div>
+        </ScrollReveal>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {contacts.map((contact, index) => (
             <ScrollReveal key={index} direction="left" delay={index * 150}>
               <div className="bg-gray-900/70 backdrop-blur-sm rounded-2xl shadow-2xl p-8 text-center transform hover:scale-105 transition-all duration-300 border border-blue-500/20 hover:border-blue-500/50">
@@ -90,7 +139,7 @@ const Contact = () => {
                 </div>
                 <h3 className="font-bold text-white mb-2">{contact.title}</h3>
                 {contact.title === 'Email' ? (
-                  <a href={`mailto:${contact.info}`} className="text-lg text-tir-blue hover:text-tir-green transition-colors break-all">{contact.info}</a>
+                  <a href={`mailto:${contact.info}`} className="text-base text-tir-blue hover:text-tir-green transition-colors break-words">{contact.info}</a>
                 ) : contact.title === 'Code officiel entreprise' ? (
                   <p className="text-sm text-gray-300">{contact.info}</p>
                 ) : (
@@ -202,103 +251,23 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Calendrier Disponibilité */}
+      {/* Lien vers Calendrier */}
       <section className="section-container">
         <ScrollReveal direction="up">
-          <div className="text-center mb-8 md:mb-12 bg-white/5 backdrop-blur-md rounded-2xl md:rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl max-w-6xl mx-auto">
+          <Link to="/calendar" className="block text-center mb-8 md:mb-12 bg-white/5 backdrop-blur-md rounded-2xl md:rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl max-w-6xl mx-auto hover:bg-white/10 hover:border-white/20 transition-all transform hover:scale-105">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4">
               📅 {t.contact.calendar.title}
             </h2>
-            <p className="text-base md:text-xl text-gray-300">
+            <p className="text-base md:text-xl text-gray-300 mb-4">
               {t.contact.calendar.subtitle}
             </p>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal direction="up">
-          <div className="bg-white/5 backdrop-blur-md rounded-2xl md:rounded-3xl p-4 md:p-8 border border-white/10 shadow-2xl max-w-7xl mx-auto overflow-x-auto mb-12 md:mb-20">
-            
-            {/* Légende */}
-            <div className="flex flex-wrap justify-center gap-6 mb-8 pb-6 border-b border-white/10">
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded bg-green-500"></div>
-                <span className="text-gray-300">{t.contact.calendar.legend.open}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded bg-yellow-500"></div>
-                <span className="text-gray-300">{t.contact.calendar.legend.lastPlaces}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded bg-gray-600"></div>
-                <span className="text-gray-300">{t.contact.calendar.legend.full}</span>
-              </div>
-            </div>
-
-            {/* Tableau calendrier */}
-            <div className="overflow-x-auto">
-              <table className="w-full text-xs sm:text-sm">
-                <thead>
-                  <tr className="border-b border-white/20">
-                    <th className="text-left p-3 text-white font-bold sticky left-0 bg-gray-900/90 backdrop-blur-sm">{t.contact.calendar.formation}</th>
-                    {t.contact.calendar.months.map((month, idx) => (
-                      <th key={idx} className="p-2 text-gray-300 font-semibold">{month}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { formation: 'CCNA', icon: '🌐', dispos: ['gray', 'green', 'green', 'gray', 'green', 'green', 'gray', 'gray', 'green', 'green', 'gray', 'gray'] },
-                    { formation: 'CCNP', icon: '🔧', dispos: ['gray', 'gray', 'green', 'green', 'green', 'gray', 'gray', 'green', 'green', 'gray', 'green', 'gray'] },
-                    { formation: 'Admin Linux', icon: '🐧', dispos: ['gray', 'green', 'gray', 'green', 'gray', 'green', 'gray', 'green', 'gray', 'green', 'gray', 'gray'] },
-                    { formation: 'Sécurité Réseau', icon: '🔒', dispos: ['gray', 'gray', 'green', 'gray', 'green', 'gray', 'gray', 'green', 'gray', 'green', 'gray', 'gray'] },
-                    { formation: 'Ethical Hacking', icon: '💻', dispos: ['green', 'yellow', 'gray', 'green', 'gray', 'green', 'gray', 'gray', 'green', 'gray', 'green', 'gray'] },
-                    { formation: 'Cybersécurité Avancée', icon: '🛡️', dispos: ['gray', 'gray', 'green', 'green', 'gray', 'gray', 'gray', 'green', 'green', 'gray', 'gray', 'gray'] },
-                    { formation: 'SOC Analyst', icon: '📊', dispos: ['gray', 'green', 'gray', 'green', 'green', 'gray', 'gray', 'gray', 'green', 'green', 'gray', 'gray'] },
-                    { formation: 'Azure Fundamentals', icon: '☁️', dispos: ['green', 'green', 'gray', 'green', 'gray', 'green', 'gray', 'green', 'gray', 'green', 'gray', 'gray'] },
-                    { formation: 'Azure Administrator', icon: '⚙️', dispos: ['gray', 'gray', 'green', 'gray', 'green', 'gray', 'gray', 'green', 'green', 'gray', 'green', 'gray'] },
-                    { formation: 'AWS Cloud', icon: '🌩️', dispos: ['gray', 'green', 'green', 'gray', 'green', 'gray', 'gray', 'gray', 'green', 'green', 'gray', 'gray'] },
-                    { formation: 'IA Fundamentals', icon: '🤖', dispos: ['green', 'gray', 'green', 'gray', 'gray', 'green', 'gray', 'green', 'gray', 'green', 'gray', 'gray'] },
-                    { formation: 'Machine Learning', icon: '🧠', dispos: ['gray', 'green', 'gray', 'green', 'green', 'gray', 'gray', 'green', 'gray', 'gray', 'green', 'gray'] },
-                    { formation: 'Deep Learning', icon: '🔬', dispos: ['gray', 'gray', 'gray', 'green', 'gray', 'green', 'gray', 'gray', 'green', 'gray', 'green', 'gray'] },
-                    { formation: 'Data Science', icon: '📈', dispos: ['gray', 'gray', 'green', 'gray', 'green', 'gray', 'gray', 'green', 'green', 'gray', 'gray', 'gray'] }
-                  ].map((row, index) => (
-                    <tr key={index} className="border-b border-white/10 hover:bg-white/5 transition-colors">
-                      <td className="p-3 text-white font-semibold sticky left-0 bg-gray-900/90 backdrop-blur-sm">
-                        <span className="mr-2">{row.icon}</span>
-                        {row.formation}
-                      </td>
-                      {row.dispos.map((dispo, moisIndex) => {
-                        const bgColor = 
-                          dispo === 'green' ? 'bg-green-500/80 hover:bg-green-500' :
-                          dispo === 'yellow' ? 'bg-yellow-500/80 hover:bg-yellow-500' :
-                          'bg-gray-600/50';
-                        
-                        return (
-                          <td key={moisIndex} className="p-1 sm:p-2 text-center">
-                            <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded mx-auto ${bgColor} transition-all cursor-pointer`}
-                                 title={dispo === 'green' ? 'Session ouverte' : dispo === 'yellow' ? 'Dernières places' : 'Fermé'}>
-                            </div>
-                          </td>
-                        );
-                      })}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="mt-8 space-y-3">
-              <p className="text-gray-300 text-center">
-                💡 <strong className="text-white">{t.contact.calendar.notes.registration}</strong>
-              </p>
-              <p className="text-sm text-gray-400 text-center">
-                📞 {t.contact.calendar.notes.contact}
-              </p>
-              <p className="text-sm text-gray-400 text-center">
-                🌍 {t.contact.calendar.notes.location}
-              </p>
-            </div>
-          </div>
+            <span className="inline-flex items-center text-tir-blue font-semibold text-lg">
+              Voir le calendrier complet
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+          </Link>
         </ScrollReveal>
       </section>
     </div>

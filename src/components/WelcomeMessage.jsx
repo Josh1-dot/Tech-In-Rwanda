@@ -72,7 +72,7 @@ const WelcomeMessage = () => {
   return (
     <div className={`fixed top-12 sm:top-14 md:top-16 left-0 right-0 z-50 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       <div className="section-container px-4">
-        <div className={`max-w-4xl bg-black/30 backdrop-blur-md rounded-2xl md:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8 border border-white/10 transform transition-all duration-1000 ${isVisible ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className={`max-w-4xl p-4 sm:p-6 md:p-8 transform transition-all duration-1000 ${isVisible ? 'translate-x-0' : '-translate-x-full'}`}>
           <div className="text-center">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4 animate-slide-in-words">
               <span className="inline-block" style={{ animationDelay: '0.2s' }}>{t.welcome}</span>{' '}

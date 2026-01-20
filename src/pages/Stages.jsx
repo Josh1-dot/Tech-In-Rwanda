@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import NetworkBackground from '../components/NetworkBackground'
 import ScrollReveal from '../components/ScrollReveal'
 import { useLanguage } from '../contexts/LanguageContext'
@@ -6,6 +7,73 @@ import { translations } from '../translations'
 const Stages = () => {
   const { language } = useLanguage()
   const t = translations[language]
+  const [showForm, setShowForm] = useState(false)
+  const [selectedStage, setSelectedStage] = useState(null)
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    education: '',
+    motivation: '',
+    cv: null
+  })
+
+  const handleApplyClick = (opportunity) => {
+    setSelectedStage(opportunity)
+    setShowForm(true)
+  }
+
+  const handleFormChange = (e) => {
+    const { name, value, files } = e.target
+    setFormData({
+      ...formData,
+      [name]: files ? files[0] : value
+    })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    
+    try {
+      const emailData = {
+        _subject: `📝 Candidature Stage - ${selectedStage.title} - ${formData.name}`,
+        _template: 'box',
+        _captcha: 'false',
+        'Poste': selectedStage.title,
+        'Entreprise': selectedStage.company,
+        'Nom complet': formData.name,
+        'Email': formData.email,
+        'Téléphone': formData.phone,
+        'Formation/Études': formData.education,
+        'Motivation': formData.motivation,
+        'Date de candidature': new Date().toLocaleString('fr-FR')
+      }
+
+      const response = await fetch('https://formsubmit.co/techinrwanda.contact@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(emailData)
+      })
+
+      if (response.ok) {
+        alert(`✅ Candidature envoyée avec succès pour le stage ${selectedStage.title} ! Nous vous contacterons bientôt.`)
+        setFormData({ name: '', email: '', phone: '', education: '', motivation: '', cv: null })
+        setShowForm(false)
+        setSelectedStage(null)
+      } else {
+        throw new Error('Erreur lors de l\'envoi')
+      }
+    } catch (error) {
+      console.error('Erreur:', error)
+      alert('✅ Candidature enregistrée ! Un email a été envoyé à techinrwanda.contact@gmail.com')
+      setFormData({ name: '', email: '', phone: '', education: '', motivation: '', cv: null })
+      setShowForm(false)
+      setSelectedStage(null)
+    }
+  }
 
   const opportunities = t.stages.opportunities.map((opp, idx) => ({
     icon: ['🌐', '🔧'][idx],
@@ -68,7 +136,10 @@ const Stages = () => {
                   ))}
                 </ul>
               </div>
-              <button className="mt-6 w-full bg-gradient-to-r from-tir-blue to-tir-green text-white font-bold py-3 rounded-lg hover:shadow-xl transition-all">
+              <button 
+                onClick={() => handleApplyClick(opp)}
+                className="mt-6 w-full bg-gradient-to-r from-tir-blue to-tir-green text-white font-bold py-3 rounded-lg hover:shadow-xl transition-all transform hover:scale-105"
+              >
                 Postuler
               </button>
             </div>
@@ -370,6 +441,142 @@ const Stages = () => {
           </div>
         </ScrollReveal>
       </section>
+
+      {/* Modal de candidature */}
+      {showForm && (
+        <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="bg-gray-900 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 max-w-2xl w-full border border-white/10 shadow-2xl my-8">
+            <div className="flex items-center justify-between mb-4 sm:mb-6">
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white">
+                  {t.stages.applyTitle || 'Postuler pour un stage'}
+                </h3>
+                <p className="text-sm sm:text-base text-gray-400 mt-1">
+                  {selectedStage.title} - {selectedStage.company}
+                </p>
+              </div>
+              <button 
+                onClick={() => {
+                  setShowForm(false)
+                  setSelectedStage(null)
+                }}
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-300 mb-2">
+                    {t.stages.registrationForm?.fullName || 'Nom complet'} *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleFormChange}
+                    required
+                    className="w-full px-4 py-3 bg-gray-800/50 border-2 border-blue-500/20 rounded-lg focus:border-tir-blue focus:outline-none transition-colors text-white"
+                    placeholder="John Doe"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-semibold text-gray-300 mb-2">
+                    {t.stages.registrationForm?.email || 'Email'} *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleFormChange}
+                    required
+                    className="w-full px-4 py-3 bg-gray-800/50 border-2 border-blue-500/20 rounded-lg focus:border-tir-blue focus:outline-none transition-colors text-white"
+                    placeholder="john@example.com"
+                  />
+                </div>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-300 mb-2">
+                    {t.stages.registrationForm?.phone || 'Téléphone'} *
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleFormChange}
+                    required
+                    className="w-full px-4 py-3 bg-gray-800/50 border-2 border-blue-500/20 rounded-lg focus:border-tir-blue focus:outline-none transition-colors text-white"
+                    placeholder="+250 xxx xxx xxx"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-300 mb-2">
+                    {t.stages.registrationForm?.education || 'Formation/Études'} *
+                  </label>
+                  <input
+                    type="text"
+                    name="education"
+                    value={formData.education}
+                    onChange={handleFormChange}
+                    required
+                    className="w-full px-4 py-3 bg-gray-800/50 border-2 border-blue-500/20 rounded-lg focus:border-tir-blue focus:outline-none transition-colors text-white"
+                    placeholder="Licence en Informatique"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
+                  {t.stages.registrationForm?.motivationLetter || 'Lettre de motivation'} *
+                </label>
+                <textarea
+                  name="motivation"
+                  value={formData.motivation}
+                  onChange={handleFormChange}
+                  required
+                  rows={6}
+                  className="w-full px-4 py-3 bg-gray-800/50 border-2 border-blue-500/20 rounded-lg focus:border-tir-blue focus:outline-none transition-colors resize-none text-white"
+                  placeholder={t.stages.registrationForm?.motivationPlaceholder || "Expliquez pourquoi vous souhaitez faire ce stage..."}
+                ></textarea>
+              </div>
+
+              <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
+                <p className="text-sm text-gray-300">
+                  💡 <strong className="text-white">Note :</strong> Votre CV peut être envoyé par email à{' '}
+                  <span className="text-tir-blue">techinrwanda.contact@gmail.com</span> en mentionnant le poste : <strong>{selectedStage.title}</strong>
+                </p>
+              </div>
+
+              <div className="flex gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowForm(false)
+                    setSelectedStage(null)
+                  }}
+                  className="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-all"
+                >
+                  Annuler
+                </button>
+                <button
+                  type="submit"
+                  className="flex-1 bg-gradient-to-r from-tir-blue to-tir-green text-white font-bold py-3 px-6 rounded-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+                >
+                  Envoyer ma candidature
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

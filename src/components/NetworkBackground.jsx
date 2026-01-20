@@ -1,16 +1,19 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, memo } from 'react'
 
-const NetworkBackground = ({ className = '' }) => {
+const NetworkBackground = memo(({ className = '' }) => {
   const canvasRef = useRef(null)
+  const animationRef = useRef(null)
 
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const ctx = canvas.getContext('2d')
-    let animationFrameId
+    const ctx = canvas.getContext('2d', { alpha: true, desynchronized: true })
     let nodes = []
     let connections = []
+    let lastTime = 0
+    const FPS = 30 // Limiter à 30 FPS pour économiser les ressources
+    const frameInterval = 1000 / FPS
 
     const resizeCanvas = () => {
       canvas.width = canvas.offsetWidth
@@ -139,7 +142,15 @@ const NetworkBackground = ({ className = '' }) => {
         node.draw()
       })
 
-      animationFrameId = requestAnimationFrame(animate)
+      animationRef.current = requestAnimationFrame((currentTime) => {
+        const deltaTime = currentTime - lastTime
+        if (deltaTime >= frameInterval) {
+          lastTime = currentTime - (deltaTime % frameInterval)
+          animate(currentTime)
+        } else {
+          animationRef.current = requestAnimationFrame(animate)
+        }
+      })
     }
 
     resizeCanvas()
@@ -149,11 +160,13 @@ const NetworkBackground = ({ className = '' }) => {
     ctx.fillStyle = 'rgba(3, 7, 18, 1)'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     
-    animate()
+    animate(0)
 
     return () => {
       window.removeEventListener('resize', resizeCanvas)
-      cancelAnimationFrame(animationFrameId)
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current)
+      }
     }
   }, [])
 
@@ -164,6 +177,8 @@ const NetworkBackground = ({ className = '' }) => {
       style={{ width: '100%', height: '100%' }}
     />
   )
-}
+})
+
+NetworkBackground.displayName = 'NetworkBackground'
 
 export default NetworkBackground

@@ -177,6 +177,7 @@ export const translations = {
       message: 'Votre message',
       send: 'Envoyer le message',
       successMessage: 'Merci ! Nous vous contacterons bientôt.',
+      bookAppointment: 'Prendre rendez-vous',
       availability: 'Disponibilité des Formations',
       month: 'Mois',
       status: 'Statut',
@@ -412,8 +413,23 @@ export const translations = {
       domains: 'Nos domaines',
       contact: 'Contact',
       companyCode: 'Code officiel de l\'entreprise:',
-      rights: 'Tous droits réservés.'
-    }
+      rights: 'Tous droits réservés.'    },
+    appointment: {
+      meetWith: 'Rencontrez',
+      chooseTime: 'Choisissez un horaire',
+      personalMeeting: 'Entretien Personnalisé',
+      webConference: 'Nous nous rencontrerons en visioconférence',
+      timezone: 'Actuellement',
+      change: 'Changer',
+      selected: 'Sélectionné',
+      back: 'Retour aux horaires',
+      enterDetails: 'Entrez vos coordonnées',
+      confirm: 'Confirmer le rendez-vous',
+      confirmMessage: 'Rendez-vous confirmé!',
+      weeks: {
+        thisWeek: 'CETTE SEMAINE',
+        nextWeek: 'SEMAINE PROCHAINE'
+      }    }
   },
   en: {
     header: {
@@ -593,6 +609,7 @@ export const translations = {
       message: 'Your message',
       send: 'Send message',
       successMessage: 'Thank you! We will contact you soon.',
+      bookAppointment: 'Book an appointment',
       availability: 'Training Availability',
       month: 'Month',
       status: 'Status',
@@ -829,6 +846,23 @@ export const translations = {
       contact: 'Contact',
       companyCode: 'Official company code:',
       rights: 'All rights reserved.'
+    },
+    appointment: {
+      meetWith: 'Meet with',
+      chooseTime: 'Choose a time',
+      personalMeeting: 'Personal Meeting',
+      webConference: "We'll meet on a web conference",
+      timezone: 'Currently',
+      change: 'Change',
+      selected: 'Selected',
+      back: 'Back to time selection',
+      enterDetails: 'Enter your details',
+      confirm: 'Confirm appointment',
+      confirmMessage: 'Appointment confirmed!',
+      weeks: {
+        thisWeek: 'THIS WEEK',
+        nextWeek: 'NEXT WEEK'
+      }
     }
   }
 }

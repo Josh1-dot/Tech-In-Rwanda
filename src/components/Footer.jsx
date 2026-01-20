@@ -65,27 +65,40 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-gray-400">
               <li className="flex items-start space-x-2">
                 <span className="text-tir-green mt-1">�</span>
-                <span>WhatsApp(Rwanda): +250 785 649 246</span>
+                <div>
+                  <div className="font-semibold text-gray-300">WhatsApp/Rwanda</div>
+                  <div>+250 785 649 246</div>
+                </div>
               </li>
               <li className="flex items-start space-x-2">
                 <span className="text-tir-green mt-1">📞</span>
-                <span>Kenya +254 712 345 678</span>
+                <div>
+                  <div className="font-semibold text-gray-300">Kenya</div>
+                  <div>+254 712 345 678</div>
+                </div>
               </li>
-              <li className="flex items-start space-x-2">                <span className="text-tir-green mt-1">✉️</span>
-                <span>techinrwanda.contact@gmail.com</span>
+              <li className="flex items-start space-x-2">
+                <span className="text-tir-green mt-1">✉️</span>
+                <div>
+                  <div className="font-semibold text-gray-300">Email</div>
+                  <div>techinrwanda.contact@gmail.com</div>
+                </div>
               </li>
                
               <li className="flex items-start space-x-2">
                 <span className="text-tir-green mt-1">📞</span>
-                <span>USA: +1 (248) 819-2368</span>
+                <div>
+                  <div className="font-semibold text-gray-300">USA</div>
+                  <div>+1 (248) 819-2368</div>
+                </div>
               </li>
               <li className="flex items-start space-x-2">
                 <span className="text-tir-green mt-1">📞</span>
-                <span>France: +33 6 78 27 58 43</span>
-              </li>
-              <li className="flex items-start space-x-2">
-                <span className="text-tir-green mt-1">📞</span>
-                <span>France: +33 7 69 84 71 85</span>
+                <div>
+                  <div className="font-semibold text-gray-300">France</div>
+                  <div>+33 6 78 27 58 43</div>
+                  <div>+33 7 69 84 71 85</div>
+                </div>
               </li>
               <li className="flex items-start space-x-2">
                 <span className="text-tir-green mt-1">🏢</span>
