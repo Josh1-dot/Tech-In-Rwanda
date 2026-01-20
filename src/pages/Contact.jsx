@@ -8,6 +8,7 @@ import { translations } from '../translations'
 const Contact = () => {
   const { language } = useLanguage()
   const t = translations[language]
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,6 +23,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsSubmitting(true)
     
     try {
       const emailData = {
@@ -53,8 +55,10 @@ const Contact = () => {
       }
     } catch (error) {
       console.error('Erreur:', error)
-      alert('✅ Message envoyé ! Nous vous contacterons bientôt.')
+      alert('✅ ' + t.contact.successMessage)
       setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -241,9 +245,10 @@ const Contact = () => {
 
               <button 
                 type="submit"
-                className="w-full bg-gradient-to-r from-tir-blue to-tir-green text-white font-bold py-4 px-8 rounded-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-tir-blue to-tir-green text-white font-bold py-4 px-8 rounded-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
-                {t.contact.send}
+                {isSubmitting ? (t.contact.sending || '⏳ Sending...') : t.contact.send}
               </button>
             </form>
           </div>

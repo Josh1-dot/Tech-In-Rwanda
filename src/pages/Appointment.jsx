@@ -10,6 +10,7 @@ const Appointment = () => {
   
   const [selectedWeek, setSelectedWeek] = useState('week-0')
   const [selectedSlot, setSelectedSlot] = useState(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -215,6 +216,7 @@ const Appointment = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsSubmitting(true)
     
     try {
       // Préparer les données pour l'email
@@ -255,7 +257,8 @@ const Appointment = () => {
         })
         localStorage.setItem('appointments', JSON.stringify(appointments))
 
-        alert('✅ Rendez-vous confirmé ! Un email a été envoyé à techinrwanda.contact@gmail.com')
+        alert(`✅ ${t.appointment.alerts.success}`)
+        setIsSubmitting(false)
         
         // Réinitialiser le formulaire
         setFormData({ name: '', email: '', phone: '', subject: '' })
@@ -490,9 +493,10 @@ const Appointment = () => {
 
                       <button
                         type="submit"
-                        className="w-full bg-gradient-to-r from-tir-blue to-tir-green text-white font-bold py-4 px-8 rounded-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+                        disabled={isSubmitting}
+                        className="w-full bg-gradient-to-r from-tir-blue to-tir-green text-white font-bold py-4 px-8 rounded-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                       >
-                        {t.appointment?.confirm || 'Confirm appointment'}
+                        {isSubmitting ? t.appointment.alerts.sending : (t.appointment?.confirm || 'Confirm appointment')}
                       </button>
                     </form>
                   </div>

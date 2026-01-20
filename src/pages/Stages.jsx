@@ -9,6 +9,7 @@ const Stages = () => {
   const t = translations[language]
   const [showForm, setShowForm] = useState(false)
   const [selectedStage, setSelectedStage] = useState(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -33,6 +34,7 @@ const Stages = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsSubmitting(true)
     
     try {
       const emailData = {
@@ -59,7 +61,7 @@ const Stages = () => {
       })
 
       if (response.ok) {
-        alert(`✅ Candidature envoyée avec succès pour le stage ${selectedStage.title} ! Nous vous contacterons bientôt.`)
+        alert(t.stages.alerts.success)
         setFormData({ name: '', email: '', phone: '', education: '', motivation: '', cv: null })
         setShowForm(false)
         setSelectedStage(null)
@@ -68,10 +70,12 @@ const Stages = () => {
       }
     } catch (error) {
       console.error('Erreur:', error)
-      alert('✅ Candidature enregistrée ! Un email a été envoyé à techinrwanda.contact@gmail.com')
+      alert(t.stages.alerts.error)
       setFormData({ name: '', email: '', phone: '', education: '', motivation: '', cv: null })
       setShowForm(false)
       setSelectedStage(null)
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -568,9 +572,10 @@ const Stages = () => {
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 bg-gradient-to-r from-tir-blue to-tir-green text-white font-bold py-3 px-6 rounded-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+                  disabled={isSubmitting}
+                  className="flex-1 bg-gradient-to-r from-tir-blue to-tir-green text-white font-bold py-3 px-6 rounded-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                  Envoyer ma candidature
+                  {isSubmitting ? '⏳ ' + t.stages.registrationForm.sending : (t.stages.registrationForm?.submit || 'Envoyer ma candidature')}
                 </button>
               </div>
             </form>

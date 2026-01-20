@@ -176,7 +176,12 @@ export const translations = {
       subject: 'Sujet',
       message: 'Votre message',
       send: 'Envoyer le message',
-      successMessage: 'Merci ! Nous vous contacterons bientôt.',
+      successMessage: 'Message envoyé avec succès !',
+      sending: 'Envoi en cours...',
+      alerts: {
+        error: 'Message envoyé ! Nous vous contacterons bientôt.',
+        sending: '⏳ Envoi en cours...'
+      },
       bookAppointment: 'Prendre rendez-vous',
       availability: 'Disponibilité des Formations',
       month: 'Mois',
@@ -250,6 +255,13 @@ export const translations = {
         title: 'Prêt à devenir partenaire ?',
         description: 'Contactez-nous pour discuter de vos besoins et obtenir une proposition personnalisée',
         button: 'Contactez-nous'
+      }
+    },
+    appointment: {
+      alerts: {
+        success: 'Rendez-vous confirmé avec succès !',
+        sending: '⏳ Confirmation en cours...',
+        error: 'Rendez-vous enregistré !'
       }
     },
     stages: {
@@ -348,6 +360,11 @@ export const translations = {
           training: 'Ex: CCNA, Security+, Azure Fundamentals...',
           cvLink: 'https://...'
         }
+      },
+      alerts: {
+        success: 'Candidature envoyée avec succès !',
+        sending: 'Envoi en cours...',
+        error: 'Candidature enregistrée ! Un email a été envoyé à techinrwanda.contact@gmail.com'
       }
     },
     blog: {
@@ -429,7 +446,12 @@ export const translations = {
       weeks: {
         thisWeek: 'CETTE SEMAINE',
         nextWeek: 'SEMAINE PROCHAINE'
-      }    }
+      },
+      alerts: {
+        success: 'Rendez-vous confirmé !',
+        confirming: 'Confirmation en cours...'
+      }
+    }
   },
   en: {
     header: {
@@ -598,6 +620,13 @@ export const translations = {
         button: 'Contact us'
       }
     },
+    appointment: {
+      alerts: {
+        success: 'Appointment confirmed successfully!',
+        sending: '⏳ Confirming...',
+        error: 'Appointment recorded!'
+      }
+    },
     contact: {
       title: 'Contact Us',
       subtitle: 'Have a question? Need information? We\'re here to help',
@@ -608,7 +637,12 @@ export const translations = {
       subject: 'Subject',
       message: 'Your message',
       send: 'Send message',
-      successMessage: 'Thank you! We will contact you soon.',
+      successMessage: 'Message sent successfully!',
+      sending: 'Sending...',
+      alerts: {
+        error: 'Message sent! We will contact you soon.',
+        sending: '⏳ Sending...'
+      },
       bookAppointment: 'Book an appointment',
       availability: 'Training Availability',
       month: 'Month',
@@ -780,6 +814,11 @@ export const translations = {
           training: 'Ex: CCNA, Security+, Azure Fundamentals...',
           cvLink: 'https://...'
         }
+      },
+      alerts: {
+        success: 'Application sent successfully!',
+        sending: 'Sending...',
+        error: 'Application recorded! An email has been sent to techinrwanda.contact@gmail.com'
       }
     },
     blog: {
@@ -862,6 +901,10 @@ export const translations = {
       weeks: {
         thisWeek: 'THIS WEEK',
         nextWeek: 'NEXT WEEK'
+      },
+      alerts: {
+        success: 'Appointment confirmed!',
+        confirming: 'Confirming...'
       }
     }
   }
