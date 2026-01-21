@@ -14,7 +14,6 @@ import Blog from './pages/Blog'
 import Contact from './pages/Contact'
 import Calendar from './pages/Calendar'
 import Appointment from './pages/Appointment'
-import AdminAppointments from './pages/AdminAppointments'
 import { trackPageView } from './utils/analytics'
 
 function App() {
@@ -27,8 +26,8 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col relative">
-      {/* Page Loader - sauf pour la page admin */}
-      {location.pathname !== '/admin/appointments' && <PageLoader />}
+      {/* Page Loader */}
+      <PageLoader />
       
       {/* Background globale avec circuits */}
       <div className="fixed inset-0 z-0">
@@ -50,7 +49,6 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/appointment" element={<Appointment />} />
-            <Route path="/admin/appointments" element={<AdminAppointments />} />
           </Routes>
         </main>
         <Footer />
