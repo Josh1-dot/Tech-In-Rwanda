@@ -10,6 +10,7 @@ const Stages = () => {
   const [showForm, setShowForm] = useState(false)
   const [selectedStage, setSelectedStage] = useState(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmittingRegistration, setIsSubmittingRegistration] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,6 +18,15 @@ const Stages = () => {
     education: '',
     motivation: '',
     cv: null
+  })
+
+  const [registrationData, setRegistrationData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    session: '',
+    training: '',
+    motivation: ''
   })
 
   const handleApplyClick = (opportunity) => {
@@ -76,6 +86,67 @@ const Stages = () => {
       setSelectedStage(null)
     } finally {
       setIsSubmitting(false)
+    }
+  }
+
+  const handleRegistrationChange = (e) => {
+    const { name, value } = e.target
+    setRegistrationData({
+      ...registrationData,
+      [name]: value
+    })
+  }
+
+  const handleRegistrationSubmit = async (e) => {
+    e.preventDefault()
+    setIsSubmittingRegistration(true)
+    
+    try {
+      const sessionTitle = registrationData.session === 'ccna' 
+        ? 'Stage CCNA - Réseau Débutant' 
+        : 'Stage CCNP - Expert Réseau'
+
+      const emailData = {
+        _subject: `📝 Inscription Stage - ${sessionTitle} - ${registrationData.fullName}`,
+        _template: 'box',
+        _captcha: 'false',
+        'Session': sessionTitle,
+        'Nom complet': registrationData.fullName,
+        'Email': registrationData.email,
+        'Téléphone': registrationData.phone,
+        'Formation suivie': registrationData.training,
+        'Lettre de motivation': registrationData.motivation || 'Non fournie',
+        'Date d\'inscription': new Date().toLocaleString('fr-FR'),
+        'Message': 'Nous reviendrons vers vous bientôt pour confirmer votre inscription.'
+      }
+
+      const response = await fetch('https://formsubmit.co/techinrwanda.contact@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(emailData)
+      })
+
+      if (response.ok) {
+        alert('✅ Inscription envoyée avec succès ! Nous reviendrons vers vous bientôt.')
+        setRegistrationData({
+          fullName: '',
+          email: '',
+          phone: '',
+          session: '',
+          training: '',
+          motivation: ''
+        })
+      } else {
+        throw new Error('Erreur lors de l\'envoi')
+      }
+    } catch (error) {
+      console.error('Erreur:', error)
+      alert('❌ Erreur lors de l\'envoi. Veuillez réessayer.')
+    } finally {
+      setIsSubmittingRegistration(false)
     }
   }
 
@@ -347,7 +418,15 @@ const Stages = () => {
                   ></div>
                 </div>
 
-                <button className="w-full bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold py-3 rounded-lg hover:bg-white/20 transition-all">
+                <button 
+                  onClick={() => {
+                    const form = document.getElementById('inscription-form');
+                    if (form) {
+                      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }}
+                  className="w-full bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold py-3 rounded-lg hover:bg-white/20 transition-all"
+                >
                   {t.stages.upcomingSessions.registerButton}
                 </button>
               </div>
@@ -357,16 +436,19 @@ const Stages = () => {
 
         {/* Formulaire d'inscription */}
         <ScrollReveal direction="up">
-          <div className="max-w-3xl mx-auto bg-white/5 backdrop-blur-md rounded-2xl md:rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl">
+          <div id="inscription-form" className="max-w-3xl mx-auto bg-white/5 backdrop-blur-md rounded-2xl md:rounded-3xl p-6 md:p-10 border border-white/10 shadow-2xl">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6 text-center">
               📝 {t.stages.registrationForm.title}
             </h3>
-            <form className="space-y-4 md:space-y-6">
+            <form onSubmit={handleRegistrationSubmit} className="space-y-4 md:space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-gray-300 mb-2 font-medium">{t.stages.registrationForm.fullName} *</label>
                   <input 
-                    type="text" 
+                    type="text"
+                    name="fullName"
+                    value={registrationData.fullName}
+                    onChange={handleRegistrationChange}
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-tir-blue focus:ring-2 focus:ring-tir-blue/50" 
                     placeholder={t.stages.registrationForm.placeholders.name}
                     required
@@ -375,7 +457,10 @@ const Stages = () => {
                 <div>
                   <label className="block text-gray-300 mb-2 font-medium">{t.stages.registrationForm.email} *</label>
                   <input 
-                    type="email" 
+                    type="email"
+                    name="email"
+                    value={registrationData.email}
+                    onChange={handleRegistrationChange}
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-tir-blue focus:ring-2 focus:ring-tir-blue/50" 
                     placeholder={t.stages.registrationForm.placeholders.email}
                     required
@@ -387,7 +472,10 @@ const Stages = () => {
                 <div>
                   <label className="block text-gray-300 mb-2 font-medium">{t.stages.registrationForm.phone} *</label>
                   <input 
-                    type="tel" 
+                    type="tel"
+                    name="phone"
+                    value={registrationData.phone}
+                    onChange={handleRegistrationChange}
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-tir-blue focus:ring-2 focus:ring-tir-blue/50" 
                     placeholder={t.stages.registrationForm.placeholders.phone}
                     required
@@ -395,7 +483,10 @@ const Stages = () => {
                 </div>
                 <div>
                   <label className="block text-gray-300 mb-2 font-medium">{t.stages.registrationForm.sessionChoice} *</label>
-                  <select 
+                  <select
+                    name="session"
+                    value={registrationData.session}
+                    onChange={handleRegistrationChange}
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-tir-blue focus:ring-2 focus:ring-tir-blue/50"
                     required
                   >
@@ -409,7 +500,10 @@ const Stages = () => {
               <div>
                 <label className="block text-gray-300 mb-2 font-medium">{t.stages.registrationForm.trainingCompleted} *</label>
                 <input 
-                  type="text" 
+                  type="text"
+                  name="training"
+                  value={registrationData.training}
+                  onChange={handleRegistrationChange}
                   className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-tir-blue focus:ring-2 focus:ring-tir-blue/50" 
                   placeholder={t.stages.registrationForm.placeholders.training}
                   required
@@ -417,18 +511,11 @@ const Stages = () => {
               </div>
 
               <div>
-                <label className="block text-gray-300 mb-2 font-medium">{t.stages.registrationForm.cvLink} *</label>
-                <input 
-                  type="url" 
-                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-tir-blue focus:ring-2 focus:ring-tir-blue/50" 
-                  placeholder={t.stages.registrationForm.placeholders.cvLink}
-                  required
-                />
-              </div>
-
-              <div>
                 <label className="block text-gray-300 mb-2 font-medium">{t.stages.registrationForm.motivationLetter}</label>
-                <textarea 
+                <textarea
+                  name="motivation"
+                  value={registrationData.motivation}
+                  onChange={handleRegistrationChange}
                   rows="5"
                   className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-tir-blue focus:ring-2 focus:ring-tir-blue/50" 
                   placeholder={t.stages.registrationForm.motivationPlaceholder}
@@ -436,10 +523,11 @@ const Stages = () => {
               </div>
 
               <button 
-                type="submit" 
-                className="w-full bg-gradient-to-r from-tir-blue to-tir-green text-white font-bold py-4 rounded-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+                type="submit"
+                disabled={isSubmittingRegistration}
+                className="w-full bg-gradient-to-r from-tir-blue to-tir-green text-white font-bold py-4 rounded-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
-                {t.stages.registrationForm.submit}
+                {isSubmittingRegistration ? '⏳ Envoi en cours...' : t.stages.registrationForm.submit}
               </button>
             </form>
           </div>
