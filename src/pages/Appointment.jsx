@@ -68,9 +68,7 @@ const Appointment = () => {
     
     // Horaires disponibles par jour (format 24h)
     defaultSlots: [
-      '09:00', '09:45', '10:30', '11:15',
-      '12:00', '12:45', '13:30', '14:15',
-      '15:00', '15:45', '16:30'
+      '09:00', '14:00', '16:00'
     ],
     
     // Jours fériés ou fermés (format: 'YYYY-MM-DD')

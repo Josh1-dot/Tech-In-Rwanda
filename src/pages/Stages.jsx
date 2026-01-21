@@ -448,8 +448,8 @@ const Stages = () => {
 
       {/* Modal de candidature */}
       {showForm && (
-        <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-          <div className="bg-gray-900 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 max-w-2xl w-full border border-white/10 shadow-2xl my-8">
+        <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-start sm:items-center justify-center p-3 sm:p-4 overflow-y-auto pt-20 sm:pt-4">
+          <div className="bg-gray-900 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 max-w-2xl w-full border border-white/10 shadow-2xl my-8 mt-4 sm:my-8">
             <div className="flex items-center justify-between mb-4 sm:mb-6">
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white">
