@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech In Rwanda - Logo Export</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #1F2937;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #1F2937;
+            padding: 40px;
+        }
+        .logo-container.with-bg {
+            background: #111827;
+            border-radius: 16px;
+        }
+        .logo-icon {
+            width: 120px;
+            height: 120px;
+        }
+        .logo-text h1 {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 2px;
+        }
+        .logo-text p {
+            margin: 5px 0 0 0;
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            color: #9CA3AF;
+            letter-spacing: 3px;
+        }
+        .instructions {
+            color: white;
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            background: #374151;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .instructions h2 {
+            margin-top: 0;
+        }
+        .instructions ol {
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <h2>Comment exporter le logo en PNG :</h2>
+        <ol>
+            <li><strong>Méthode 1 - Capture d'écran :</strong>
+                <ul>
+                    <li>Windows : Utilisez l'outil Capture d'écran (Win + Shift + S)</li>
+                    <li>Sélectionnez la zone du logo et enregistrez en PNG</li>
+                </ul>
+            </li>
+            <li><strong>Méthode 2 - Outil en ligne :</strong>
+                <ul>
+                    <li>Copiez le code SVG ci-dessous</li>
+                    <li>Allez sur <a href="https://cloudconvert.com/svg-to-png" style="color: #60A5FA;">cloudconvert.com/svg-to-png</a></li>
+                    <li>Convertissez en PNG avec résolution haute (300 DPI)</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <!-- Logo complet avec texte -->
+    <div class="logo-container">
+        <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <!-- Bouclier de cybersécurité -->
+            <path
+                d="M50 10 L70 20 L70 45 Q70 70 50 85 Q30 70 30 45 L30 20 Z"
+                fill="none"
+                stroke="white"
+                stroke-width="3"
+                opacity="0.95"
+            />
+            
+            <!-- Nœuds de réseau -->
+            <circle cx="50" cy="35" r="5" fill="white" opacity="0.9">
+                <animate attributeName="r" values="3;6;3" dur="0.8s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.7;1;0.7" dur="0.8s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="42" cy="50" r="5" fill="white" opacity="0.9">
+                <animate attributeName="r" values="3;6;3" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.7;1;0.7" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="58" cy="50" r="5" fill="white" opacity="0.9">
+                <animate attributeName="r" values="3;6;3" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.7;1;0.7" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="50" cy="65" r="5" fill="white" opacity="0.9">
+                <animate attributeName="r" values="3;6;3" dur="0.8s" begin="0.4s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.7;1;0.7" dur="0.8s" begin="0.4s" repeatCount="indefinite" />
+            </circle>
+            
+            <!-- Lignes de connexion -->
+            <line x1="50" y1="35" x2="42" y2="50" stroke="white" stroke-width="2.5" opacity="0.8">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" repeatCount="indefinite" />
+                <animate attributeName="stroke-width" values="1.5;3;1.5" dur="0.8s" repeatCount="indefinite" />
+            </line>
+            <line x1="50" y1="35" x2="58" y2="50" stroke="white" stroke-width="2.5" opacity="0.8">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" repeatCount="indefinite" />
+                <animate attributeName="stroke-width" values="1.5;3;1.5" dur="0.8s" repeatCount="indefinite" />
+            </line>
+            <line x1="42" y1="50" x2="50" y2="65" stroke="white" stroke-width="2.5" opacity="0.8">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
+                <animate attributeName="stroke-width" values="1.5;3;1.5" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
+            </line>
+            <line x1="58" y1="50" x2="50" y2="65" stroke="white" stroke-width="2.5" opacity="0.8">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
+                <animate attributeName="stroke-width" values="1.5;3;1.5" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
+            </line>
+            <line x1="42" y1="50" x2="58" y2="50" stroke="white" stroke-width="2.5" opacity="0.8">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" begin="0.4s" repeatCount="indefinite" />
+                <animate attributeName="stroke-width" values="1.5;3;1.5" dur="0.8s" begin="0.4s" repeatCount="indefinite" />
+            </line>
+        </svg>
+        
+        <div class="logo-text">
+            <h1>TECH IN RWANDA</h1>
+            <p>Former. Sécuriser. Innover.</p>
+        </div>
+    </div>
+
+    <!-- Logo seul sans texte -->
+    <div class="logo-container">
+        <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M50 10 L70 20 L70 45 Q70 70 50 85 Q30 70 30 45 L30 20 Z"
+                fill="none"
+                stroke="white"
+                stroke-width="3"
+                opacity="0.95"
+            />
+            <circle cx="50" cy="35" r="4" fill="white" opacity="0.9"/>
+            <circle cx="42" cy="50" r="4" fill="white" opacity="0.9"/>
+            <circle cx="58" cy="50" r="4" fill="white" opacity="0.9"/>
+            <circle cx="50" cy="65" r="4" fill="white" opacity="0.9"/>
+            <line x1="50" y1="35" x2="42" y2="50" stroke="white" stroke-width="2" opacity="0.7"/>
+            <line x1="50" y1="35" x2="58" y2="50" stroke="white" stroke-width="2" opacity="0.7"/>
+            <line x1="42" y1="50" x2="50" y2="65" stroke="white" stroke-width="2" opacity="0.7"/>
+            <line x1="58" y1="50" x2="50" y2="65" stroke="white" stroke-width="2" opacity="0.7"/>
+            <line x1="42" y1="50" x2="58" y2="50" stroke="white" stroke-width="2" opacity="0.7"/>
+        </svg>
+    </div>
+</body>
+</html>

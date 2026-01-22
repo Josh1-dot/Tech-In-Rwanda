@@ -42,15 +42,66 @@ const Header = () => {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-4 group">
-            <div>
-              <span className="text-white font-extrabold text-4xl drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">TIR</span>
+          <Link to="/" className="flex items-center space-x-3 group">
+            {/* Logo Tech - Réseau avec bouclier de sécurité */}
+            <div className="w-20 h-20 sm:w-24 sm:h-24 relative">
+              <svg className="w-full h-full" viewBox="0 0 100 100">
+                {/* Bouclier de cybersécurité */}
+                <path
+                  d="M50 10 L70 20 L70 45 Q70 70 50 85 Q30 70 30 45 L30 20 Z"
+                  fill="none"
+                  stroke="white"
+                  strokeWidth="3"
+                  className="group-hover:stroke-[3.5] transition-all duration-300"
+                  opacity="0.95"
+                />
+                
+                {/* Nœuds de réseau - animation rapide et synchronisée */}
+                <circle cx="50" cy="35" r="5" fill="white" opacity="0.9">
+                  <animate attributeName="r" values="3;6;3" dur="0.8s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.7;1;0.7" dur="0.8s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="42" cy="50" r="5" fill="white" opacity="0.9">
+                  <animate attributeName="r" values="3;6;3" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.7;1;0.7" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="58" cy="50" r="5" fill="white" opacity="0.9">
+                  <animate attributeName="r" values="3;6;3" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.7;1;0.7" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="50" cy="65" r="5" fill="white" opacity="0.9">
+                  <animate attributeName="r" values="3;6;3" dur="0.8s" begin="0.4s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.7;1;0.7" dur="0.8s" begin="0.4s" repeatCount="indefinite" />
+                </circle>
+                
+                {/* Lignes - simulation de flux de données intelligent */}
+                <line x1="50" y1="35" x2="42" y2="50" stroke="white" strokeWidth="2.5" opacity="0.8">
+                  <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" repeatCount="indefinite" />
+                  <animate attributeName="stroke-width" values="1.5;3;1.5" dur="0.8s" repeatCount="indefinite" />
+                </line>
+                <line x1="50" y1="35" x2="58" y2="50" stroke="white" strokeWidth="2.5" opacity="0.8">
+                  <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" repeatCount="indefinite" />
+                  <animate attributeName="stroke-width" values="1.5;3;1.5" dur="0.8s" repeatCount="indefinite" />
+                </line>
+                <line x1="42" y1="50" x2="50" y2="65" stroke="white" strokeWidth="2.5" opacity="0.8">
+                  <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
+                  <animate attributeName="stroke-width" values="1.5;3;1.5" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
+                </line>
+                <line x1="58" y1="50" x2="50" y2="65" stroke="white" strokeWidth="2.5" opacity="0.8">
+                  <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
+                  <animate attributeName="stroke-width" values="1.5;3;1.5" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
+                </line>
+                <line x1="42" y1="50" x2="58" y2="50" stroke="white" strokeWidth="2.5" opacity="0.8">
+                  <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" begin="0.4s" repeatCount="indefinite" />
+                  <animate attributeName="stroke-width" values="1.5;3;1.5" dur="0.8s" begin="0.4s" repeatCount="indefinite" />
+                </line>
+              </svg>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-white">
-                Tech In Rwanda
+              <h1 className="text-xl sm:text-2xl font-bold text-white">
+                TECH IN RWANDA
               </h1>
-              <p className="text-sm text-gray-400">{t.footer.tagline}</p>
+              <p className="text-xs sm:text-sm text-gray-400">{t.footer.tagline}</p>
             </div>
           </Link>
 
