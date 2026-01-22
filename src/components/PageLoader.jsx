@@ -58,47 +58,47 @@ const PageLoader = () => {
             <path
               d="M50 10 L70 20 L70 45 Q70 70 50 85 Q30 70 30 45 L30 20 Z"
               fill="none"
-              stroke="white"
+              stroke="#FFD700"
               strokeWidth="3"
               opacity="0.95"
             />
             
             {/* Nœuds de réseau - animation rapide et synchronisée */}
-            <circle cx="50" cy="35" r="5" fill="white" opacity="0.9">
+            <circle cx="50" cy="35" r="5" fill="#FFD700" opacity="0.9">
               <animate attributeName="r" values="3;7;3" dur="0.8s" repeatCount="indefinite" />
               <animate attributeName="opacity" values="0.6;1;0.6" dur="0.8s" repeatCount="indefinite" />
             </circle>
-            <circle cx="42" cy="50" r="5" fill="white" opacity="0.9">
+            <circle cx="42" cy="50" r="5" fill="#FFD700" opacity="0.9">
               <animate attributeName="r" values="3;7;3" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
               <animate attributeName="opacity" values="0.6;1;0.6" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
             </circle>
-            <circle cx="58" cy="50" r="5" fill="white" opacity="0.9">
+            <circle cx="58" cy="50" r="5" fill="#FFD700" opacity="0.9">
               <animate attributeName="r" values="3;7;3" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
               <animate attributeName="opacity" values="0.6;1;0.6" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
             </circle>
-            <circle cx="50" cy="65" r="5" fill="white" opacity="0.9">
+            <circle cx="50" cy="65" r="5" fill="#FFD700" opacity="0.9">
               <animate attributeName="r" values="3;7;3" dur="0.8s" begin="0.4s" repeatCount="indefinite" />
               <animate attributeName="opacity" values="0.6;1;0.6" dur="0.8s" begin="0.4s" repeatCount="indefinite" />
             </circle>
             
             {/* Lignes - simulation de flux de données intelligent */}
-            <line x1="50" y1="35" x2="42" y2="50" stroke="white" strokeWidth="2.5" opacity="0.8">
+            <line x1="50" y1="35" x2="42" y2="50" stroke="#FFD700" strokeWidth="2.5" opacity="0.8">
               <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" repeatCount="indefinite" />
               <animate attributeName="stroke-width" values="1.5;3.5;1.5" dur="0.8s" repeatCount="indefinite" />
             </line>
-            <line x1="50" y1="35" x2="58" y2="50" stroke="white" strokeWidth="2.5" opacity="0.8">
+            <line x1="50" y1="35" x2="58" y2="50" stroke="#FFD700" strokeWidth="2.5" opacity="0.8">
               <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" repeatCount="indefinite" />
               <animate attributeName="stroke-width" values="1.5;3.5;1.5" dur="0.8s" repeatCount="indefinite" />
             </line>
-            <line x1="42" y1="50" x2="50" y2="65" stroke="white" strokeWidth="2.5" opacity="0.8">
+            <line x1="42" y1="50" x2="50" y2="65" stroke="#FFD700" strokeWidth="2.5" opacity="0.8">
               <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
               <animate attributeName="stroke-width" values="1.5;3.5;1.5" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
             </line>
-            <line x1="58" y1="50" x2="50" y2="65" stroke="white" strokeWidth="2.5" opacity="0.8">
+            <line x1="58" y1="50" x2="50" y2="65" stroke="#FFD700" strokeWidth="2.5" opacity="0.8">
               <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
               <animate attributeName="stroke-width" values="1.5;3.5;1.5" dur="0.8s" begin="0.2s" repeatCount="indefinite" />
             </line>
-            <line x1="42" y1="50" x2="58" y2="50" stroke="white" strokeWidth="2.5" opacity="0.8">
+            <line x1="42" y1="50" x2="58" y2="50" stroke="#FFD700" strokeWidth="2.5" opacity="0.8">
               <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" begin="0.4s" repeatCount="indefinite" />
               <animate attributeName="stroke-width" values="1.5;3.5;1.5" dur="0.8s" begin="0.4s" repeatCount="indefinite" />
             </line>
@@ -106,12 +106,12 @@ const PageLoader = () => {
         </div>
 
         {/* Company Name */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider animate-pulse text-center text-white">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider animate-pulse text-center text-yellow-400">
           TECH IN RWANDA
         </h1>
         
         {/* Slogan */}
-        <p className="mt-4 text-lg sm:text-xl md:text-2xl text-white font-light tracking-widest animate-pulse text-center">
+        <p className="mt-4 text-lg sm:text-xl md:text-2xl text-yellow-400 font-light tracking-widest animate-pulse text-center">
           Train. Secure. Innovate.
         </p>
       </div>
